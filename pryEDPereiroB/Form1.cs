@@ -10,11 +10,32 @@ using System.Windows.Forms;
 
 namespace pryEDPereiroB
 {
-    public partial class Form1 : Form
+    public partial class frmPrincipal : Form
     {
-        public Form1()
+        public frmPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void consultaDeUnaTablaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void coloresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void desarrolladorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDatosDesarrolador desarrolador = new frmDatosDesarrolador();
+            desarrolador.ShowDialog();
         }
     }
 }

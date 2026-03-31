@@ -37,5 +37,22 @@ namespace pryEDPereiroB
             frmDatosDesarrolador desarrolador = new frmDatosDesarrolador();
             desarrolador.ShowDialog();
         }
+
+        private void coloresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmColores colores = new frmColores();
+            colores.ShowDialog();
+        }
+
+        private void mesesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmMeses meses = new frmMeses();    
+            meses.ShowDialog();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

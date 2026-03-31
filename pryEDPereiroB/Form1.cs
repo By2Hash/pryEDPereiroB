@@ -52,7 +52,8 @@ namespace pryEDPereiroB
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmClientes clientes = new frmClientes();
+            clientes.ShowDialog();
         }
     }
 }

@@ -30,7 +30,7 @@
         {
             this.lblNombre = new System.Windows.Forms.Label();
             this.lstColores = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtColores = new System.Windows.Forms.TextBox();
             this.btnListar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -55,14 +55,14 @@
             this.lstColores.Size = new System.Drawing.Size(385, 277);
             this.lstColores.TabIndex = 1;
             // 
-            // textBox1
+            // txtColores
             // 
-            this.textBox1.Location = new System.Drawing.Point(159, 37);
-            this.textBox1.MaxLength = 10;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 25);
-            this.textBox1.TabIndex = 2;
+            this.txtColores.Location = new System.Drawing.Point(159, 37);
+            this.txtColores.MaxLength = 10;
+            this.txtColores.Multiline = true;
+            this.txtColores.Name = "txtColores";
+            this.txtColores.Size = new System.Drawing.Size(270, 25);
+            this.txtColores.TabIndex = 2;
             // 
             // btnListar
             // 
@@ -72,6 +72,7 @@
             this.btnListar.TabIndex = 3;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // btnGrabar
             // 
@@ -81,6 +82,7 @@
             this.btnGrabar.TabIndex = 4;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // frmColores
             // 
@@ -89,12 +91,13 @@
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnListar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtColores);
             this.Controls.Add(this.lstColores);
             this.Controls.Add(this.lblNombre);
             this.Name = "frmColores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Colores";
+            this.Load += new System.EventHandler(this.frmColores_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,7 +107,7 @@
 
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.ListBox lstColores;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtColores;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnGrabar;
     }

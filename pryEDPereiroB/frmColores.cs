@@ -24,6 +24,8 @@ namespace pryEDPereiroB
             clsArchivoTexto x = new clsArchivoTexto();
             x.NombreArchivo = "Colores.txt";
             x.Guardar(txtColores.Text);
+
+            txtColores.Clear();
         }
 
         private void frmColores_Load(object sender, EventArgs e)

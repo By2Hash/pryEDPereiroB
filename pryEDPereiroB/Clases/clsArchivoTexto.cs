@@ -27,20 +27,25 @@ namespace pryEDPereiroB
             sw.Close();
         }
 
-        public void Guardar(string Nombre, string Color)
+        public void Guardar(String dato1, String dato2, String dato3)
         {
             StreamWriter sw = new StreamWriter(NombreArchivo, true);
-            sw.WriteLine(Nombre);
-            sw.Write(" ,");
-            sw.WriteLine(Color);
+            sw.Write(dato1);
+            sw.Write(";");
+            sw.Write(dato2);
+            sw.Write(";");
+            sw.WriteLine(dato3);
             sw.Close();
+
+
         }
 
         public void Recorrer(ListBox lst)
         {
-            String DatoLeido;
+            string DatoLeido;
             lst.Items.Clear();
-             StreamReader sr = new StreamReader(NombreArchivo);
+            
+            StreamReader sr = new StreamReader(NombreArchivo);
             DatoLeido = sr.ReadLine();
 
             while (DatoLeido != null)
@@ -49,6 +54,38 @@ namespace pryEDPereiroB
                     DatoLeido = sr.ReadLine();
             }
                 sr.Close();
+        }
+
+        public void Recorrer(ComboBox lst)
+        {
+            string DatoLeido;
+            lst.Items.Clear();
+
+            StreamReader sr = new StreamReader(NombreArchivo);
+            DatoLeido = sr.ReadLine();
+
+            while (DatoLeido != null)
+            {
+                lst.Items.Add(DatoLeido);
+                DatoLeido = sr.ReadLine();
+            }
+            sr.Close();
+            lst.SelectedIndex = 0;
+        }
+
+        public void Recorrer(DataGridView Grilla)
+        {
+            string DatoLeido;
+            Grilla.Rows.Clear();
+            StreamReader sr = new StreamReader(NombreArchivo);
+            DatoLeido = sr.ReadLine();
+            while (DatoLeido != null)
+            {
+                Grilla.Rows.Add(DatoLeido.Split(';'));
+                DatoLeido = sr.ReadLine();
+            }
+            sr.Close();
+            
         }
 
 

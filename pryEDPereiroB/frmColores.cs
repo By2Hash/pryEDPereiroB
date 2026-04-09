@@ -21,11 +21,25 @@ namespace pryEDPereiroB
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            clsArchivoTexto x = new clsArchivoTexto();
-            x.NombreArchivo = "Colores.txt";
-            x.Guardar(txtColores.Text);
+            if(string.IsNullOrEmpty(txtColores.Text))
+            {
+                MessageBox.Show("Ingrese un color, daltonico","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            else
+            {
+                clsArchivoTexto x = new clsArchivoTexto();
+                x.NombreArchivo = "Colores.txt";
+                x.Guardar(txtColores.Text);
 
-            txtColores.Clear();
+                txtColores.Clear();
+                lstColores.Items.Clear();
+                lstColores.Items.AddRange(File.ReadAllLines("Colores.txt"));
+
+            }
+
+
+
+            
         }
 
         private void frmColores_Load(object sender, EventArgs e)
@@ -33,10 +47,6 @@ namespace pryEDPereiroB
 
         }
 
-        private void btnListar_Click(object sender, EventArgs e)
-        {
-            lstColores.Items.Clear();
-            lstColores.Items.AddRange(File.ReadAllLines("Colores.txt"));
-        }
+        
     }
 }

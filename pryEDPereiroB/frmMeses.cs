@@ -23,7 +23,7 @@ namespace pryEDPereiroB
 
             if (string.IsNullOrWhiteSpace(txtMeses.Text))
             {
-                MessageBox.Show("Ingrese un mes, CLW", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese un mes", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

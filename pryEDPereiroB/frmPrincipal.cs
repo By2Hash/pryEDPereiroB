@@ -55,5 +55,22 @@ namespace pryEDPereiroB
             frmClientes clientes = new frmClientes();
             clientes.ShowDialog();
         }
+
+        private void estructurasLinealesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void colaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEstructuraLinealCola cola = new frmEstructuraLinealCola();
+            cola.ShowDialog();
+        }
+
+        private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAlumnos alumnos = new frmAlumnos();
+            alumnos.ShowDialog();
+        }
     }
 }

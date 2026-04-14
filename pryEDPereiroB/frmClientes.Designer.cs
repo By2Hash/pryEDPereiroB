@@ -44,12 +44,13 @@
             // 
             // btnGrabar
             // 
+            this.btnGrabar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnGrabar.Location = new System.Drawing.Point(423, 197);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(150, 25);
             this.btnGrabar.TabIndex = 0;
             this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.UseVisualStyleBackColor = false;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // lblCodigo
@@ -89,6 +90,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(150, 25);
             this.txtCodigo.TabIndex = 4;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // txtNombre

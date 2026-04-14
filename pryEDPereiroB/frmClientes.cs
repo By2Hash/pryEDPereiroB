@@ -20,14 +20,26 @@ namespace pryEDPereiroB
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            clsArchivoTexto objCliente = new clsArchivoTexto();
-            objCliente.NombreArchivo = "Cliente.CSV";
-            objCliente.Guardar(txtCodigo.Text, txtNombre.Text, txtDeuda.Text);
-            objCliente.Recorrer(dgvClientes);
+            if (string.IsNullOrWhiteSpace(txtCodigo.Text) ||
+        string.IsNullOrWhiteSpace(txtNombre.Text) ||
+        string.IsNullOrWhiteSpace(txtDeuda.Text))
+            {
+                // Si falta algún dato, mostramos el mensaje de error
+                MessageBox.Show("No se puede grabar. Por favor, complete todos los campos. Agarra la pala ", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                // Si todos los campos tienen datos, ejecutamos la lógica original
+                clsArchivoTexto objCliente = new clsArchivoTexto();
+                objCliente.NombreArchivo = "Cliente.CSV";
+                objCliente.Guardar(txtCodigo.Text, txtNombre.Text, txtDeuda.Text);
+                objCliente.Recorrer(dgvClientes);
 
-            txtCodigo.Clear();
-            txtDeuda.Clear();
-            txtNombre.Clear();
+                // Limpiamos los campos después de grabar
+                txtCodigo.Clear();
+                txtDeuda.Clear();
+                txtNombre.Clear();
+            }
         }
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -48,6 +60,11 @@ namespace pryEDPereiroB
             clsArchivoTexto x = new clsArchivoTexto();
             x.NombreArchivo = "Cliente.CSV";
             if (File.Exists(x.NombreArchivo)) x.Recorrer(dgvClientes) ;
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

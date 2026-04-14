@@ -23,7 +23,7 @@ namespace pryEDPereiroB
         {
             if(string.IsNullOrEmpty(txtColores.Text))
             {
-                MessageBox.Show("Ingrese un color, daltonico","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese un color","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else
             {

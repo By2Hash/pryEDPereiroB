@@ -38,7 +38,7 @@
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
-            this.cmbCarreras = new System.Windows.Forms.ComboBox();
+            this.txtCarrera = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,21 +133,21 @@
             this.dgvAlumnos.Size = new System.Drawing.Size(546, 195);
             this.dgvAlumnos.TabIndex = 15;
             // 
-            // cmbCarreras
+            // txtCarrera
             // 
-            this.cmbCarreras.FormattingEnabled = true;
-            this.cmbCarreras.Location = new System.Drawing.Point(136, 133);
-            this.cmbCarreras.Name = "cmbCarreras";
-            this.cmbCarreras.Size = new System.Drawing.Size(437, 21);
-            this.cmbCarreras.TabIndex = 16;
+            this.txtCarrera.Location = new System.Drawing.Point(136, 129);
+            this.txtCarrera.Multiline = true;
+            this.txtCarrera.Name = "txtCarrera";
+            this.txtCarrera.Size = new System.Drawing.Size(437, 25);
+            this.txtCarrera.TabIndex = 14;
             // 
             // frmAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 461);
-            this.Controls.Add(this.cmbCarreras);
             this.Controls.Add(this.dgvAlumnos);
+            this.Controls.Add(this.txtCarrera);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCarrera);
@@ -173,6 +173,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigo;
         private System.Windows.Forms.DataGridView dgvAlumnos;
-        private System.Windows.Forms.ComboBox cmbCarreras;
+        private System.Windows.Forms.TextBox txtCarrera;
     }
 }

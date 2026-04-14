@@ -45,10 +45,13 @@
             this.lblNombre1 = new System.Windows.Forms.Label();
             this.lblTramite1 = new System.Windows.Forms.Label();
             this.lblEliminado = new System.Windows.Forms.Label();
-            this.pcbCola = new System.Windows.Forms.PictureBox();
             this.lblCodEliminado = new System.Windows.Forms.Label();
             this.lblNomEliminado = new System.Windows.Forms.Label();
             this.lblTraEliminado = new System.Windows.Forms.Label();
+            this.pcbCola = new System.Windows.Forms.PictureBox();
+            this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTramite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCola)).BeginInit();
             this.pnlElementos.SuspendLayout();
             this.pnlEliminado.SuspendLayout();
@@ -130,9 +133,15 @@
             // 
             // dgvCola
             // 
+            this.dgvCola.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCola.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCola.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmCodigo,
+            this.clmNombre,
+            this.clmTramite});
             this.dgvCola.Location = new System.Drawing.Point(227, 284);
             this.dgvCola.Name = "dgvCola";
+            this.dgvCola.RowHeadersVisible = false;
             this.dgvCola.Size = new System.Drawing.Size(468, 238);
             this.dgvCola.TabIndex = 9;
             // 
@@ -226,16 +235,6 @@
             this.lblEliminado.TabIndex = 11;
             this.lblEliminado.Text = "Elemento Eliminado";
             // 
-            // pcbCola
-            // 
-            this.pcbCola.Image = global::pryEDPereiroB.Properties.Resources.b10;
-            this.pcbCola.Location = new System.Drawing.Point(12, 45);
-            this.pcbCola.Name = "pcbCola";
-            this.pcbCola.Size = new System.Drawing.Size(198, 216);
-            this.pcbCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbCola.TabIndex = 13;
-            this.pcbCola.TabStop = false;
-            // 
             // lblCodEliminado
             // 
             this.lblCodEliminado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -265,6 +264,31 @@
             this.lblTraEliminado.Size = new System.Drawing.Size(94, 23);
             this.lblTraEliminado.TabIndex = 13;
             this.lblTraEliminado.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // pcbCola
+            // 
+            this.pcbCola.Image = global::pryEDPereiroB.Properties.Resources.b10;
+            this.pcbCola.Location = new System.Drawing.Point(12, 45);
+            this.pcbCola.Name = "pcbCola";
+            this.pcbCola.Size = new System.Drawing.Size(198, 216);
+            this.pcbCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbCola.TabIndex = 13;
+            this.pcbCola.TabStop = false;
+            // 
+            // clmCodigo
+            // 
+            this.clmCodigo.HeaderText = "Codigo";
+            this.clmCodigo.Name = "clmCodigo";
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.HeaderText = "Nombre";
+            this.clmNombre.Name = "clmNombre";
+            // 
+            // clmTramite
+            // 
+            this.clmTramite.HeaderText = "Tramite";
+            this.clmTramite.Name = "clmTramite";
             // 
             // frmEstructuraLinealCola
             // 
@@ -315,5 +339,8 @@
         private System.Windows.Forms.Label lblCodEliminado;
         private System.Windows.Forms.Label lblNomEliminado;
         private System.Windows.Forms.Label lblTraEliminado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTramite;
     }
 }

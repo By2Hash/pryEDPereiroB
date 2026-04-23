@@ -67,5 +67,18 @@ namespace pryEDPereiroB
                 lblCodEliminado.Text = "";
             }
         }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // bloquea el caracter
+            }
+        }
     }
 }

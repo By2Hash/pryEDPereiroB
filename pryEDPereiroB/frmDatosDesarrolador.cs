@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace pryEDPereiroB
 {
@@ -15,6 +16,21 @@ namespace pryEDPereiroB
         public frmDatosDesarrolador()
         {
             InitializeComponent();
+        }
+
+        private void frmDatosDesarrolador_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void llblGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            llblGitHub.LinkVisited = true;
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://github.com/By2Hash?tab=repositories",
+                UseShellExecute = true
+            });
         }
     }
 }

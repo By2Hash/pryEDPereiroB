@@ -49,6 +49,7 @@
     <Compile Include="Clases\clsArchivoTexto.cs" />
     <Compile Include="Clases\clsNodos.cs" />
     <Compile Include="Clases\clsCola.cs" />
+    <Compile Include="Clases\clsPila.cs" />
     <Compile Include="frmAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ListaDoblemente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\October Rust MacBook wallpaper.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

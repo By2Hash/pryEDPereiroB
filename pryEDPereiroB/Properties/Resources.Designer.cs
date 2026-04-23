@@ -103,6 +103,16 @@ namespace pryEDPereiroB.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap October_Rust_MacBook_wallpaper {
+            get {
+                object obj = ResourceManager.GetObject("October Rust MacBook wallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pila {
             get {
                 object obj = ResourceManager.GetObject("Pila", resourceCulture);

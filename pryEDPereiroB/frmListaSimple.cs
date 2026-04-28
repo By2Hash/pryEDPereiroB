@@ -21,5 +21,44 @@ namespace pryEDPereiroB
         {
 
         }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        clsListaSimple ls = new clsListaSimple();
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtCodigo.Text) && 
+                !string.IsNullOrWhiteSpace(txtNombre.Text) &&
+                !string.IsNullOrWhiteSpace(txtTramite.Text))
+            {
+                clsNodos n = new clsNodos();
+                n.Codigo = Convert.ToInt32(txtCodigo.Text);
+                n.Nombre = txtNombre.Text;
+                n.Tramite = txtTramite.Text;
+                ls.Agregar(n);
+                ls.Recorrer(dgvListaSimple);
+                ls.Recorrer(lstListaSimple);
+
+                txtCodigo.Clear();
+                txtNombre.Clear();
+                txtTramite.Clear();
+
+            }
+            else
+            { 
+                MessageBox.Show("Complete los campos");
+            }
+        }
     }
 }

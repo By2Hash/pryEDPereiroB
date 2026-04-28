@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlEliminado = new System.Windows.Forms.Panel();
+            this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.lblCodigo1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblEliminado = new System.Windows.Forms.Label();
@@ -40,18 +41,17 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblTramite = new System.Windows.Forms.Label();
-            this.dgvPila = new System.Windows.Forms.DataGridView();
+            this.dgvListaSimple = new System.Windows.Forms.DataGridView();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTramite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lstPila = new System.Windows.Forms.ListBox();
+            this.lstListaSimple = new System.Windows.Forms.ListBox();
             this.lblElementos = new System.Windows.Forms.Label();
             this.pcbPila = new System.Windows.Forms.PictureBox();
-            this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.lblSerieSimple = new System.Windows.Forms.Label();
             this.pnlEliminado.SuspendLayout();
             this.pnlElementos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPila)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaSimple)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPila)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +65,14 @@
             this.pnlEliminado.Name = "pnlEliminado";
             this.pnlEliminado.Size = new System.Drawing.Size(231, 216);
             this.pnlEliminado.TabIndex = 26;
+            // 
+            // cmbCodigo
+            // 
+            this.cmbCodigo.FormattingEnabled = true;
+            this.cmbCodigo.Location = new System.Drawing.Point(88, 95);
+            this.cmbCodigo.Name = "cmbCodigo";
+            this.cmbCodigo.Size = new System.Drawing.Size(121, 21);
+            this.cmbCodigo.TabIndex = 12;
             // 
             // lblCodigo1
             // 
@@ -127,6 +135,8 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 23);
             this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // txtNombre
             // 
@@ -153,6 +163,7 @@
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblNombre
             // 
@@ -174,19 +185,19 @@
             this.lblTramite.TabIndex = 5;
             this.lblTramite.Text = "Tramite";
             // 
-            // dgvPila
+            // dgvListaSimple
             // 
-            this.dgvPila.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPila.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPila.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvListaSimple.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListaSimple.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaSimple.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCodigo,
             this.clmNombre,
             this.clmTramite});
-            this.dgvPila.Location = new System.Drawing.Point(227, 269);
-            this.dgvPila.Name = "dgvPila";
-            this.dgvPila.RowHeadersVisible = false;
-            this.dgvPila.Size = new System.Drawing.Size(468, 238);
-            this.dgvPila.TabIndex = 23;
+            this.dgvListaSimple.Location = new System.Drawing.Point(227, 269);
+            this.dgvListaSimple.Name = "dgvListaSimple";
+            this.dgvListaSimple.RowHeadersVisible = false;
+            this.dgvListaSimple.Size = new System.Drawing.Size(468, 238);
+            this.dgvListaSimple.TabIndex = 23;
             // 
             // clmCodigo
             // 
@@ -203,15 +214,15 @@
             this.clmTramite.HeaderText = "Tramite";
             this.clmTramite.Name = "clmTramite";
             // 
-            // lstPila
+            // lstListaSimple
             // 
-            this.lstPila.FormattingEnabled = true;
-            this.lstPila.Items.AddRange(new object[] {
+            this.lstListaSimple.FormattingEnabled = true;
+            this.lstListaSimple.Items.AddRange(new object[] {
             "."});
-            this.lstPila.Location = new System.Drawing.Point(12, 269);
-            this.lstPila.Name = "lstPila";
-            this.lstPila.Size = new System.Drawing.Size(198, 238);
-            this.lstPila.TabIndex = 22;
+            this.lstListaSimple.Location = new System.Drawing.Point(12, 269);
+            this.lstListaSimple.Name = "lstListaSimple";
+            this.lstListaSimple.Size = new System.Drawing.Size(198, 238);
+            this.lstListaSimple.TabIndex = 22;
             // 
             // lblElementos
             // 
@@ -232,14 +243,6 @@
             this.pcbPila.TabIndex = 27;
             this.pcbPila.TabStop = false;
             // 
-            // cmbCodigo
-            // 
-            this.cmbCodigo.FormattingEnabled = true;
-            this.cmbCodigo.Location = new System.Drawing.Point(88, 95);
-            this.cmbCodigo.Name = "cmbCodigo";
-            this.cmbCodigo.Size = new System.Drawing.Size(121, 21);
-            this.cmbCodigo.TabIndex = 12;
-            // 
             // lblSerieSimple
             // 
             this.lblSerieSimple.AutoSize = true;
@@ -259,8 +262,8 @@
             this.Controls.Add(this.pnlEliminado);
             this.Controls.Add(this.lblEliminado);
             this.Controls.Add(this.pnlElementos);
-            this.Controls.Add(this.dgvPila);
-            this.Controls.Add(this.lstPila);
+            this.Controls.Add(this.dgvListaSimple);
+            this.Controls.Add(this.lstListaSimple);
             this.Controls.Add(this.lblElementos);
             this.Name = "frmListaSimple";
             this.Text = "Estructura de datos lineal: Lista Simple";
@@ -269,7 +272,7 @@
             this.pnlEliminado.PerformLayout();
             this.pnlElementos.ResumeLayout(false);
             this.pnlElementos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPila)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaSimple)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPila)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -291,11 +294,11 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblTramite;
-        private System.Windows.Forms.DataGridView dgvPila;
+        private System.Windows.Forms.DataGridView dgvListaSimple;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTramite;
-        private System.Windows.Forms.ListBox lstPila;
+        private System.Windows.Forms.ListBox lstListaSimple;
         private System.Windows.Forms.Label lblElementos;
         private System.Windows.Forms.ComboBox cmbCodigo;
         private System.Windows.Forms.Label lblSerieSimple;

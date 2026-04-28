@@ -50,6 +50,7 @@
     <Compile Include="Clases\clsNodos.cs" />
     <Compile Include="Clases\clsCola.cs" />
     <Compile Include="Clases\clsPila.cs" />
+    <Compile Include="Clases\clsListaSimple.cs" />
     <Compile Include="frmAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>

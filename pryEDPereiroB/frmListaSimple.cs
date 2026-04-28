@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -49,6 +51,7 @@ namespace pryEDPereiroB
                 ls.Agregar(n);
                 ls.Recorrer(dgvListaSimple);
                 ls.Recorrer(lstListaSimple);
+                ls.Recorrer(cmbCodigo);
 
                 txtCodigo.Clear();
                 txtNombre.Clear();
@@ -58,6 +61,25 @@ namespace pryEDPereiroB
             else
             { 
                 MessageBox.Show("Complete los campos");
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (cmbCodigo.SelectedItem != null)
+            {
+                Int32 codigo = Convert.ToInt32(cmbCodigo.SelectedItem);
+                ls.Eliminar(codigo);
+
+                ls.Recorrer(dgvListaSimple); 
+                ls.Recorrer(lstListaSimple); 
+                ls.Recorrer(cmbCodigo);
+
+                MessageBox.Show("Elemento eliminado correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un código.");
             }
         }
     }

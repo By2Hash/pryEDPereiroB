@@ -33,14 +33,14 @@ namespace pryEDPereiroB
                     primero = Nuevo;
                 }
                 else
-                { 
+                {
                     clsNodos aux = primero;
                     clsNodos ant = primero;
                     while (Nuevo.Codigo > aux.Codigo)
-                    { 
+                    {
                         ant = aux;
                         aux = aux.Siguiente;
-                        if (aux == null) break ;
+                        if (aux == null) break;
 
                     }
                     Nuevo.Siguiente = aux;
@@ -104,6 +104,25 @@ namespace pryEDPereiroB
                 Aux = Aux.Siguiente;
 
 
+            }
+        }
+
+        public void Eliminar(Int32 Codigo)
+        {
+            if (primero.Codigo == Codigo)
+            {
+                primero = primero.Siguiente;
+            }
+            else
+            {   
+                clsNodos aux1 = primero;
+                clsNodos aux2 = primero;
+                while (aux1.Codigo != Codigo)
+                {
+                    aux2 = aux1;
+                    aux1 = aux1.Siguiente;
+                }
+                aux2.Siguiente = aux1.Siguiente;
             }
         }
     }

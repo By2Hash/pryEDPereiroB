@@ -12,6 +12,7 @@ namespace pryEDPereiroB
         private string nombre;
         private string tramite;
         private clsNodos siguiente;
+        private clsNodos anterior;
 
         public int Codigo
         {
@@ -32,6 +33,12 @@ namespace pryEDPereiroB
         {
             get { return siguiente; }
             set { siguiente = value; }
+        }
+
+        public clsNodos Anterior
+        {
+            get { return anterior; }
+            set { anterior = value; }
         }
 
     }

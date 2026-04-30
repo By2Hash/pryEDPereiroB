@@ -84,5 +84,11 @@ namespace pryEDPereiroB
             frmListaSimple listaSimple = new frmListaSimple();  
             listaSimple.ShowDialog();
         }
+
+        private void listaDobleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListaDoble listaDoble = new frmListaDoble();
+            listaDoble.ShowDialog();
+        }
     }
 }

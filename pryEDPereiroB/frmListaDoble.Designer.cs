@@ -32,6 +32,7 @@
             this.pnlEliminado = new System.Windows.Forms.Panel();
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.lblCodigo1 = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.lblEliminado = new System.Windows.Forms.Label();
             this.pnlElementos = new System.Windows.Forms.Panel();
             this.lblCodigo = new System.Windows.Forms.Label();
@@ -41,21 +42,20 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblTramite = new System.Windows.Forms.Label();
-            this.dgvPila = new System.Windows.Forms.DataGridView();
+            this.dgvListaDoble = new System.Windows.Forms.DataGridView();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTramite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lstPila = new System.Windows.Forms.ListBox();
+            this.lstListaDoble = new System.Windows.Forms.ListBox();
             this.lblElementos = new System.Windows.Forms.Label();
             this.pcbPila = new System.Windows.Forms.PictureBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblListaDatos = new System.Windows.Forms.Label();
-            this.rdbAscendente = new System.Windows.Forms.RadioButton();
             this.rdbDescendente = new System.Windows.Forms.RadioButton();
+            this.rdbAscendente = new System.Windows.Forms.RadioButton();
+            this.lblListaDatos = new System.Windows.Forms.Label();
             this.pnlEliminado.SuspendLayout();
             this.pnlElementos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPila)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaDoble)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPila)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +97,17 @@
             this.lblCodigo1.Size = new System.Drawing.Size(56, 17);
             this.lblCodigo1.TabIndex = 11;
             this.lblCodigo1.Text = "Codigo:";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnEliminar.Location = new System.Drawing.Point(26, 48);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(183, 30);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblEliminado
             // 
@@ -165,6 +176,7 @@
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblNombre
             // 
@@ -186,19 +198,19 @@
             this.lblTramite.TabIndex = 5;
             this.lblTramite.Text = "Tramite";
             // 
-            // dgvPila
+            // dgvListaDoble
             // 
-            this.dgvPila.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPila.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPila.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvListaDoble.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListaDoble.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaDoble.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCodigo,
             this.clmNombre,
             this.clmTramite});
-            this.dgvPila.Location = new System.Drawing.Point(222, 267);
-            this.dgvPila.Name = "dgvPila";
-            this.dgvPila.RowHeadersVisible = false;
-            this.dgvPila.Size = new System.Drawing.Size(468, 238);
-            this.dgvPila.TabIndex = 31;
+            this.dgvListaDoble.Location = new System.Drawing.Point(222, 267);
+            this.dgvListaDoble.Name = "dgvListaDoble";
+            this.dgvListaDoble.RowHeadersVisible = false;
+            this.dgvListaDoble.Size = new System.Drawing.Size(468, 238);
+            this.dgvListaDoble.TabIndex = 31;
             // 
             // clmCodigo
             // 
@@ -215,15 +227,15 @@
             this.clmTramite.HeaderText = "Tramite";
             this.clmTramite.Name = "clmTramite";
             // 
-            // lstPila
+            // lstListaDoble
             // 
-            this.lstPila.FormattingEnabled = true;
-            this.lstPila.Items.AddRange(new object[] {
+            this.lstListaDoble.FormattingEnabled = true;
+            this.lstListaDoble.Items.AddRange(new object[] {
             "."});
-            this.lstPila.Location = new System.Drawing.Point(7, 267);
-            this.lstPila.Name = "lstPila";
-            this.lstPila.Size = new System.Drawing.Size(198, 238);
-            this.lstPila.TabIndex = 30;
+            this.lstListaDoble.Location = new System.Drawing.Point(7, 267);
+            this.lstListaDoble.Name = "lstListaDoble";
+            this.lstListaDoble.Size = new System.Drawing.Size(198, 238);
+            this.lstListaDoble.TabIndex = 30;
             // 
             // lblElementos
             // 
@@ -244,16 +256,6 @@
             this.pcbPila.TabIndex = 35;
             this.pcbPila.TabStop = false;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.IndianRed;
-            this.btnEliminar.Location = new System.Drawing.Point(26, 48);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(183, 30);
-            this.btnEliminar.TabIndex = 6;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.rdbDescendente);
@@ -264,15 +266,16 @@
             this.panel1.Size = new System.Drawing.Size(231, 87);
             this.panel1.TabIndex = 37;
             // 
-            // lblListaDatos
+            // rdbDescendente
             // 
-            this.lblListaDatos.AutoSize = true;
-            this.lblListaDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaDatos.Location = new System.Drawing.Point(456, 139);
-            this.lblListaDatos.Name = "lblListaDatos";
-            this.lblListaDatos.Size = new System.Drawing.Size(84, 17);
-            this.lblListaDatos.TabIndex = 11;
-            this.lblListaDatos.Text = "Listar Datos";
+            this.rdbDescendente.AutoSize = true;
+            this.rdbDescendente.Location = new System.Drawing.Point(17, 55);
+            this.rdbDescendente.Name = "rdbDescendente";
+            this.rdbDescendente.Size = new System.Drawing.Size(89, 17);
+            this.rdbDescendente.TabIndex = 1;
+            this.rdbDescendente.TabStop = true;
+            this.rdbDescendente.Text = "Descendente";
+            this.rdbDescendente.UseVisualStyleBackColor = true;
             // 
             // rdbAscendente
             // 
@@ -285,16 +288,15 @@
             this.rdbAscendente.Text = "Ascendente";
             this.rdbAscendente.UseVisualStyleBackColor = true;
             // 
-            // rdbDescendente
+            // lblListaDatos
             // 
-            this.rdbDescendente.AutoSize = true;
-            this.rdbDescendente.Location = new System.Drawing.Point(17, 55);
-            this.rdbDescendente.Name = "rdbDescendente";
-            this.rdbDescendente.Size = new System.Drawing.Size(89, 17);
-            this.rdbDescendente.TabIndex = 1;
-            this.rdbDescendente.TabStop = true;
-            this.rdbDescendente.Text = "Descendente";
-            this.rdbDescendente.UseVisualStyleBackColor = true;
+            this.lblListaDatos.AutoSize = true;
+            this.lblListaDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListaDatos.Location = new System.Drawing.Point(456, 139);
+            this.lblListaDatos.Name = "lblListaDatos";
+            this.lblListaDatos.Size = new System.Drawing.Size(84, 17);
+            this.lblListaDatos.TabIndex = 11;
+            this.lblListaDatos.Text = "Listar Datos";
             // 
             // frmListaDoble
             // 
@@ -308,16 +310,17 @@
             this.Controls.Add(this.pnlEliminado);
             this.Controls.Add(this.lblEliminado);
             this.Controls.Add(this.pnlElementos);
-            this.Controls.Add(this.dgvPila);
-            this.Controls.Add(this.lstPila);
+            this.Controls.Add(this.dgvListaDoble);
+            this.Controls.Add(this.lstListaDoble);
             this.Controls.Add(this.lblElementos);
             this.Name = "frmListaDoble";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista Doblemente Enlazada";
             this.pnlEliminado.ResumeLayout(false);
             this.pnlEliminado.PerformLayout();
             this.pnlElementos.ResumeLayout(false);
             this.pnlElementos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPila)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaDoble)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPila)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -342,11 +345,11 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblTramite;
-        private System.Windows.Forms.DataGridView dgvPila;
+        private System.Windows.Forms.DataGridView dgvListaDoble;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTramite;
-        private System.Windows.Forms.ListBox lstPila;
+        private System.Windows.Forms.ListBox lstListaDoble;
         private System.Windows.Forms.Label lblElementos;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Panel panel1;

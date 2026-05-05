@@ -132,22 +132,85 @@ namespace pryEDPereiroB
 
         public void Eliminar(Int32 Codigo)
         {
-            if (primero.Codigo == Codigo)
+            if (primero.Codigo == Codigo && ultimo == primero)
             {
-                primero = primero.Siguiente;
+                primero = null;
+                ultimo = null;
             }
-            else 
+            else
             {
-                clsNodos aux1 = primero;
-                clsNodos aux2 = primero;
-                while (aux1.Codigo != Codigo)
+                if (primero.Codigo == Codigo)
                 {
-                    aux2 = aux1;
-                    aux1 = aux1.Siguiente;
+                    primero = primero.Siguiente;
+                    primero.Anterior = null;
                 }
-                aux2.Siguiente = aux1.Siguiente;
+                else
+                {
+                    if (ultimo.Codigo == Codigo)
+                    {
+                        ultimo = ultimo.Anterior;
+                        ultimo.Siguiente = null;
+                    }
+                    else
+                    { 
+                        clsNodos aux = primero;
+                        clsNodos ant = primero;
+                        while (aux.Codigo != Codigo)
+                        {
+                            ant = aux;
+                            aux = aux.Siguiente;
+                        }
+                        aux = aux.Siguiente;
+                        aux.Anterior = ant;
+                        ant.Siguiente = aux;
+                    }
+                }
+
             }
 
         }
+
+
+        // Recorrido descendente para DataGridView
+        public void RecorrerDesc(DataGridView Grilla)
+        {
+            // Empezamos desde el último nodo
+            clsNodos Aux = Ultimo;
+            Grilla.Rows.Clear();
+
+            while (Aux != null)
+            {
+                Grilla.Rows.Add(Aux.Codigo, Aux.Nombre, Aux.Tramite);
+                // Retrocedemos usando la propiedad Anterior
+                Aux = Aux.Anterior;
+            }
+        }
+
+        // Recorrido descendente para ListBox
+        public void RecorrerDesc(ListBox Lista)
+        {
+            clsNodos Aux = Ultimo;
+            Lista.Items.Clear();
+
+            while (Aux != null)
+            {
+                Lista.Items.Add(Aux.Codigo);
+                Aux = Aux.Anterior;
+            }
+        }
+
+        // Recorrido descendente para ComboBox
+        public void RecorrerDesc(ComboBox Combo)
+        {
+            clsNodos Aux = Ultimo;
+            Combo.Items.Clear();
+
+            while (Aux != null)
+            {
+                Combo.Items.Add(Aux.Codigo);
+                Aux = Aux.Anterior;
+            }
+        }
+
     }
 }

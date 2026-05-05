@@ -55,13 +55,30 @@ namespace pryEDPereiroB
                 ld.Recorrer(lstListaDoble);
                 ld.Recorrer(cmbCodigo);
 
-                
+                cmbCodigo.SelectedIndex = -1;
+                cmbCodigo.Text = "";
+
             }
             else
             {
                 MessageBox.Show("Por favor, seleccione un código");
             }
 
+           
+        }
+
+        private void rdbDescendente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbDescendente.Checked)
+            {
+                ld.RecorrerDesc(dgvListaDoble);
+                ld.RecorrerDesc(lstListaDoble);
+            }
+            else
+            {
+                ld.Recorrer(dgvListaDoble);
+                ld.Recorrer(lstListaDoble);
+            }
         }
     }
 }

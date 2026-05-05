@@ -276,6 +276,7 @@
             this.rdbDescendente.TabStop = true;
             this.rdbDescendente.Text = "Descendente";
             this.rdbDescendente.UseVisualStyleBackColor = true;
+            this.rdbDescendente.CheckedChanged += new System.EventHandler(this.rdbDescendente_CheckedChanged);
             // 
             // rdbAscendente
             // 

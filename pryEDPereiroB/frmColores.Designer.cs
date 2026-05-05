@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmColores));
             this.lblNombre = new System.Windows.Forms.Label();
             this.lstColores = new System.Windows.Forms.ListBox();
             this.txtColores = new System.Windows.Forms.TextBox();
@@ -65,7 +66,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(260, 77);
+            this.btnGrabar.Location = new System.Drawing.Point(260, 78);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(169, 34);
             this.btnGrabar.TabIndex = 4;
@@ -83,6 +84,7 @@
             this.Controls.Add(this.txtColores);
             this.Controls.Add(this.lstColores);
             this.Controls.Add(this.lblNombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmColores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Colores";

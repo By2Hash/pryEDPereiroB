@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPila));
             this.pnlEliminado = new System.Windows.Forms.Panel();
             this.lblCodEliminado = new System.Windows.Forms.Label();
             this.lblNomEliminado = new System.Windows.Forms.Label();
@@ -305,6 +306,7 @@
             this.Controls.Add(this.dgvPila);
             this.Controls.Add(this.lstPila);
             this.Controls.Add(this.lblElementos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPila";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estructura de datos: PILA";

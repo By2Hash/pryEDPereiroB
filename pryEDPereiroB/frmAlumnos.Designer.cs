@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAlumnos));
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCarrera = new System.Windows.Forms.Label();
@@ -154,6 +155,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.btnGrabar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlumnos";
             this.Text = "Alumnos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();

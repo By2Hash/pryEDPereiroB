@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMeses));
             this.btnGrabar = new System.Windows.Forms.Button();
             this.txtMeses = new System.Windows.Forms.TextBox();
             this.lstMeses = new System.Windows.Forms.ListBox();
@@ -83,6 +84,7 @@
             this.Controls.Add(this.txtMeses);
             this.Controls.Add(this.lstMeses);
             this.Controls.Add(this.lblNombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMeses";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meses";

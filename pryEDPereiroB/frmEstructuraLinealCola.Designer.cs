@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstructuraLinealCola));
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtTramite = new System.Windows.Forms.TextBox();
@@ -306,6 +307,7 @@
             this.Controls.Add(this.dgvCola);
             this.Controls.Add(this.lstCola);
             this.Controls.Add(this.lblElementos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEstructuraLinealCola";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estructura Dinamica Lineal - Cola";

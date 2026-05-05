@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientes));
             this.btnGrabar = new System.Windows.Forms.Button();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -47,7 +48,7 @@
             this.btnGrabar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnGrabar.Location = new System.Drawing.Point(423, 197);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(150, 25);
+            this.btnGrabar.Size = new System.Drawing.Size(150, 33);
             this.btnGrabar.TabIndex = 0;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = false;
@@ -155,6 +156,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.btnGrabar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";

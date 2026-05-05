@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDatosDesarrolador));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblDesarrollador = new System.Windows.Forms.Label();
             this.llblGitHub = new System.Windows.Forms.LinkLabel();
@@ -111,6 +112,7 @@
             this.Controls.Add(this.llblGitHub);
             this.Controls.Add(this.lblDesarrollador);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDatosDesarrolador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos del Desarrolador";

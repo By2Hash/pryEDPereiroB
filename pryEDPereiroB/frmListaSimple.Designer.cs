@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaSimple));
             this.pnlEliminado = new System.Windows.Forms.Panel();
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.lblCodigo1 = new System.Windows.Forms.Label();
@@ -266,6 +267,7 @@
             this.Controls.Add(this.dgvListaSimple);
             this.Controls.Add(this.lstListaSimple);
             this.Controls.Add(this.lblElementos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmListaSimple";
             this.Text = "Estructura de datos lineal: Lista Simple";
             this.Load += new System.EventHandler(this.frmListaSimple_Load);

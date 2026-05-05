@@ -102,6 +102,26 @@ namespace pryEDPereiroB
             }
         }
 
+        public void RecorrerDesc()
+        {
+            clsNodos Aux = Ultimo;
+
+            StreamWriter sw = new StreamWriter("ListaDobleDesc.txt");
+
+            while (Aux != null)
+            {
+                sw.WriteLine("Codigo: " + Aux.Codigo);
+                sw.WriteLine("Nombre: " + Aux.Nombre);
+                sw.WriteLine("Tramite: " + Aux.Tramite);
+                sw.WriteLine("");
+
+                Aux = Aux.Anterior;
+            }
+
+            sw.Close();
+        }
+
+
         public void Recorrer(ListBox Lista)
         {
             clsNodos Aux = Primero;
@@ -171,22 +191,18 @@ namespace pryEDPereiroB
         }
 
 
-        // Recorrido descendente para DataGridView
         public void RecorrerDesc(DataGridView Grilla)
         {
-            // Empezamos desde el último nodo
             clsNodos Aux = Ultimo;
             Grilla.Rows.Clear();
 
             while (Aux != null)
             {
                 Grilla.Rows.Add(Aux.Codigo, Aux.Nombre, Aux.Tramite);
-                // Retrocedemos usando la propiedad Anterior
                 Aux = Aux.Anterior;
             }
         }
 
-        // Recorrido descendente para ListBox
         public void RecorrerDesc(ListBox Lista)
         {
             clsNodos Aux = Ultimo;
@@ -199,7 +215,6 @@ namespace pryEDPereiroB
             }
         }
 
-        // Recorrido descendente para ComboBox
         public void RecorrerDesc(ComboBox Combo)
         {
             clsNodos Aux = Ultimo;

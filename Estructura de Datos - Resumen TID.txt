@@ -1,0 +1,543 @@
+﻿Estructura de Datos
+
+
+Resumen del texto de estudio
+
+
+✅ SP1: Programación Orientada a Objetos (POO)
+________________
+
+
+La Programación Orientada a Objetos es un paradigma que nace como respuesta a la "crisis del software", ante la necesidad de construir sistemas complejos de manera más eficiente, confiable y mantenible. Propone un cambio de enfoque respecto a la programación estructurada, orientando el diseño y desarrollo del software a partir de objetos que interactúan entre sí.
+Los objetos son entidades autónomas que representan elementos del mundo real o conceptual, y se definen a partir de clases, que actúan como moldes. Cada objeto posee:
+* Atributos: datos que representan su estado.
+
+* Métodos: funciones que definen su comportamiento.
+
+🧱 Principios clave del paradigma:
+   * Abstracción: simplifica la complejidad ocultando los detalles innecesarios y mostrando solo lo relevante.
+   * Encapsulamiento: protege los datos, permitiendo el acceso solo a través de métodos controlados (interfaz pública).
+   * Herencia: permite crear nuevas clases a partir de otras existentes, reutilizando código y comportamiento.
+
+
+   * Polimorfismo: distintos objetos pueden responder al mismo mensaje de diferentes maneras según su clase.
+
+La comunicación entre objetos se realiza mediante mensajes, lo que promueve la modularidad y flexibilidad del sistema. Cada objeto conoce cómo responder a los mensajes que recibe, lo que permite diseñar software que se adapta mejor a los cambios y al crecimiento.
+Entre sus principales beneficios se destacan:
+✅ Reutilización de código
+✅ Menor acoplamiento
+✅ Mayor claridad en el diseño
+✅ Facilidad para escalar y mantener aplicaciones
+________________
+
+
+✅ SP2: Cola (estructura FIFO)
+________________
+
+
+La cola es una estructura de datos dinámica y lineal utilizada para gestionar información de manera ordenada, basada en el principio FIFO (First In, First Out), es decir, el primero que entra es el primero que sale. Es útil en situaciones donde se requiere mantener el orden de llegada, como en sistemas de turnos, procesos de impresión o atención de pacientes.
+Una cola está formada por nodos enlazados, cada uno compuesto por un dato y una referencia al siguiente. Se gestiona con dos punteros:
+      * Frente (Pri): indica el primer elemento (el próximo en salir).
+
+      * Final (Ult): apunta al último nodo insertado (último en entrar).
+
+⚙️ Operaciones básicas:
+         * Crear: inicializa la estructura cuando llega el primer dato.
+
+         * Insertar: agrega un elemento al final.
+
+         * Eliminar: remueve el elemento del frente.
+
+         * Listar y Buscar: recorre desde el frente hasta el final.
+
+Al tratarse de una estructura dinámica, asigna memoria solo cuando es necesario, lo que la hace eficiente en el uso de recursos, a diferencia de vectores o matrices estáticas.
+También existen variantes como la cola circular, donde el último nodo apunta nuevamente al primero, permitiendo recorridos cíclicos.
+Las colas se aplican, por ejemplo, en:
+            * Gestión de turnos (hospitales, bancos).
+
+            * Buffers de impresión.
+
+            * Procesamiento por lotes en sistemas operativos.
+
+Gracias a su comportamiento ordenado y adaptable, la cola es una herramienta fundamental en la resolución de problemas donde la secuencia temporal de eventos debe ser respetada.
+________________
+
+
+✅ SP3: Pila (estructura LIFO)
+________________
+
+
+La pila es una estructura de datos dinámica lineal que organiza los elementos bajo la lógica LIFO (Last In, First Out), es decir, el último en entrar es el primero en salir. Se utiliza cuando se requiere controlar el flujo de acciones en orden inverso, como en funciones recursivas, deshacer cambios o control de navegación.
+Está compuesta por nodos enlazados, cada uno con un dato y una referencia al nodo anterior. Se gestiona mediante un único puntero:
+               * Tope (Ult): apunta al último elemento ingresado.
+⚙️ Operaciones fundamentales:
+               * Crear: inicializa la estructura si está vacía.
+               * Insertar (Push): agrega un elemento al tope de la pila.
+               * Eliminar (Pop): remueve el elemento del tope.
+               * Listar/Buscar: recorre desde el tope hacia la base.
+En programación, las pilas son esenciales para:
+               * Manejo de memoria y llamadas recursivas.
+               * Implementar funcionalidades de deshacer/rehacer.
+               * Evaluación de expresiones aritméticas y compilación.
+Las pilas son estructuras dinámicas, por lo que se adaptan al número de elementos requeridos sin desperdiciar memoria. Se construyen utilizando objetos nodo, enlazados por punteros hacia el nodo anterior, lo que permite un crecimiento y reducción flexibles.
+La lógica de funcionamiento se asemeja a apilar platos: se colocan uno encima del otro, y solo se puede retirar el que está en la cima. Este principio permite un control riguroso del orden de las acciones.
+En síntesis, la pila es ideal para resolver problemas donde se requiere gestión inversa del flujo, y se destaca por su simpleza, eficiencia y múltiples aplicaciones en la informática.
+________________
+
+
+✅ SP4: Lista Enlazada
+________________
+
+
+La lista enlazada es una estructura de datos dinámica, lineal y secuencial, que permite almacenar elementos sin un tamaño predefinido. Cada nodo contiene un dato y una o más referencias (punteros) que indican cómo conectarse con otros nodos.
+A diferencia de vectores o arrays, las listas enlazadas crecen y decrecen en tiempo de ejecución, y su eficiencia reside en el manejo inteligente de punteros para insertar o eliminar elementos.
+________________
+
+
+🔗 Tipos de listas enlazadas:
+               1. Simplemente enlazada
+ Cada nodo contiene:
+
+                  * Un grupo de datos.
+                  * Una única referencia al siguiente nodo.
+🔸 Operaciones:
+                  * Insertar: requiere recorrer la lista hasta encontrar la posición deseada.
+                  * Eliminar: necesita conocer el nodo anterior al que se desea eliminar.
+                  * Recorrer: solo es posible en sentido único (de inicio a fin).
+________________
+
+
+                  2. Doblemente enlazada
+ Cada nodo contiene:
+
+                     * Un grupo de datos.
+                     * Una referencia al nodo siguiente.
+                     * Una referencia al nodo anterior.
+🔸 Operaciones:
+                     * Insertar: más eficiente, ya que se puede insertar antes o después de un nodo conocido.
+                     * Eliminar: más simple, porque cada nodo conoce a su predecesor.
+                     * Recorrer: en ambos sentidos (hacia adelante o hacia atrás).
+________________
+
+
+⚙️ Operaciones comunes (según tipo):
+                     * Crear lista: inicializa la estructura, asignando punteros a null.
+                     * Insertar nodo:
+
+                        * Al inicio: cambia la cabeza (primero).
+                        * Al final: requiere conocer el último nodo (más fácil en doble o circular).
+                        * En posición intermedia: necesita recorrido (simplificado en lista doble).
+
+                           * Eliminar nodo:
+
+                              * En lista simple: requiere dos punteros (actual y anterior).
+                              * En lista doble: se hace directamente desde el nodo a eliminar.
+
+                                 * Buscar o recorrer:
+
+                                    * De inicio a fin (en simple).
+                                    * En ambos sentidos (en doble).
+________________
+
+
+📌 Aplicaciones:
+                                    * Historiales, movimientos, editores de texto (listas dobles).
+                                    * Implementación base de estructuras como pilas, colas, árboles y grafos.
+
+
+________________
+
+
+✅ SP5: Grafo
+________________
+
+
+Un grafo es una estructura de datos no lineal, compuesta por nodos (vértices) y conexiones (aristas), utilizada para representar relaciones entre elementos. Es muy útil cuando los datos están conectados de forma compleja y no jerárquica, como rutas, redes o dependencias.
+________________
+
+
+🧩 Componentes del grafo:
+                                    * Vértices (nodos): elementos que representan entidades.
+                                    * Aristas (arcos): relaciones entre los nodos. Pueden ser:
+                                    * Dirigidas: tienen un sentido (de A hacia B).
+                                    * No dirigidas: conexión sin dirección específica (de A a B y viceversa).
+
+________________
+
+
+🧠 Tipos de grafos:
+                                       * Simples: sin bucles ni múltiples aristas entre los mismos nodos.
+                                       * Multigrafos: permiten varias conexiones entre el mismo par de nodos.
+                                       * Conexos: hay camino entre cualquier par de vértices.
+                                       * Completos: todos los nodos están conectados entre sí.
+                                       * Con ciclos: contienen vueltas (caminos que regresan al origen).
+                                       * Árboles: grafos acíclicos y conexos (caso especial de grafo).
+________________
+
+
+🛠️ Representación:
+                                       1. Matriz de adyacencia:
+
+                                          * Tabla cuadrada donde la celda [i][j] indica si hay conexión de i a j.
+                                          * Fácil de implementar, poco eficiente para grafos dispersos.
+
+                                             2. Lista de adyacencia:
+
+                                                * Cada nodo almacena una lista con sus vecinos directos.
+                                                * Más eficiente en memoria para grafos con pocas conexiones.
+________________
+
+
+⚙️ Operaciones:
+                                                * Agregar/Eliminar nodos o aristas.
+
+                                                * Recorrer el grafo:
+
+                                                   * Búsqueda en profundidad (DFS): explora todo un camino antes de retroceder.
+                                                   * Búsqueda en anchura (BFS): explora nivel por nivel.
+________________
+
+
+📌 Aplicaciones:
+                                                   * Sistemas de transporte y rutas.
+                                                   * Redes sociales, mapas, telecomunicaciones.
+                                                   * Inteligencia artificial (búsqueda de soluciones).
+                                                   * Gestión de dependencias (tareas, paquetes, etc.).
+________________
+
+
+Los grafos ofrecen una forma poderosa y flexible de representar sistemas interconectados, y su correcta implementación es clave para resolver problemas complejos en muchas áreas de la informática.
+________________
+
+
+✅ SP6: Árbol
+________________
+
+
+Un árbol es una estructura de datos jerárquica que organiza la información de forma similar a un diagrama de ramificación. Es un caso especial de grafo, sin ciclos y con un único camino entre cualquier par de nodos. Su forma natural de organización lo hace ideal para representar relaciones de dependencia y búsqueda eficiente.
+________________
+
+
+🧩 Elementos de un árbol:
+                                                   * Raíz: nodo inicial del cual parten todos los demás.
+                                                   * Nodos: elementos que contienen datos y enlaces a otros nodos (hijos).
+                                                   * Padre e hijo: relación directa entre un nodo superior (padre) y sus derivados (hijos).
+                                                   * Hojas: nodos que no tienen hijos.
+                                                   * Subárboles: cada nodo y sus descendientes forman un subárbol.
+________________
+
+
+🌲 Tipos principales:
+                                                   * Árbol binario: cada nodo puede tener como máximo dos hijos (izquierdo y derecho).
+                                                   * Árbol binario de búsqueda (ABB):
+                                                   * Los valores menores al nodo van al subárbol izquierdo.
+                                                   * Los mayores van al subárbol derecho.
+                                                   * Árboles balanceados:
+                                                   * Mantienen sus ramas equilibradas para garantizar búsquedas rápidas.
+________________
+
+
+⚙️ Operaciones básicas:
+                                                   * Insertar: se coloca el nodo respetando las reglas de estructura (por ejemplo, en un ABB, comparando valores).
+                                                   * Eliminar: retirar un nodo.
+                                                   * Buscar: recorrer según el valor del nodo.
+                                                   * Recorrer (traversal):
+                                                   * Preorden: visitar nodo → subárbol izquierdo → subárbol derecho.
+                                                   * Inorden: subárbol izquierdo → nodo → subárbol derecho (usado en ABB para obtener orden ascendente).
+                                                   * Postorden: subárbol izquierdo → subárbol derecho → nodo.
+🌟 Tipos de Recorridos de un Árbol y Ejemplos Concretos
+________________
+
+
+1. Recorrido Preorden (nodo → izquierda → derecha)
+¿Cómo funciona?
+ Primero visita el nodo actual, luego el hijo izquierdo, y después el hijo derecho.
+¿Para qué se usa?
+                                                   * Guardar o replicar toda la estructura de un árbol.
+                                                   * Generar copias de árboles.
+                                                   * Convertir un árbol en una lista de operaciones (por ejemplo, para clonar o exportar).
+
+Ejemplo concreto:
+                                                      * Copia de carpetas: cuando copiás una carpeta y todas sus subcarpetas en un sistema operativo, se usa preorden para ir carpeta por carpeta antes de copiar el contenido.
+________________
+
+
+2. Recorrido Inorden (izquierda → nodo → derecha)
+¿Cómo funciona?
+ Primero recorre el hijo izquierdo, luego el nodo actual, y finalmente el hijo derecho.
+¿Para qué se usa?
+                                                      * Obtener datos ordenados (solo en árboles binarios de búsqueda, ABB).
+                                                      * Muy usado en operaciones que requieren que los datos estén en orden creciente.
+Ejemplo concreto:
+                                                      * Listar productos ordenados por precio: si los productos están almacenados en un ABB, un recorrido inorden devuelve la lista en orden ascendente de precios.
+________________
+
+
+3. Recorrido Postorden (izquierda → derecha → nodo)
+¿Cómo funciona?
+ Primero recorre el hijo izquierdo, luego el hijo derecho, y finalmente el nodo actual.
+¿Para qué se usa?
+                                                      * Eliminar todos los nodos de un árbol de manera segura (liberando memoria desde las hojas hacia arriba).
+                                                      * Evaluar expresiones aritméticas donde primero se deben resolver los operandos antes de los operadores.
+Ejemplo concreto:
+                                                      * Desinstalación de programas: cuando un programa debe eliminar archivos y carpetas internas antes de eliminar la carpeta principal, se usa postorden para borrar de abajo hacia arriba.
+                                                      * Calculadora: al evaluar una expresión como (2 + (3 * 4)), primero se resuelve el 3 * 4, y luego el 2 + resultado, siguiendo un orden postorden.
+________________
+
+
+📚 Resumen rápido:
+Recorrido
+	¿Qué prioriza?
+	Uso típico
+	Ejemplo
+	Preorden
+	Nodo actual primero
+	Clonar o exportar árboles
+	Copiar carpetas
+	Inorden
+	Ordenar datos
+	Listar datos ordenados
+	Productos por precio
+	Postorden
+	Resolver o eliminar de hojas a raíz
+	Liberar memoria, evaluar expresiones
+	Desinstalar programa, calcular operaciones
+	________________
+
+
+📌 Aplicaciones:
+                                                      * Sistemas de archivos (carpetas y subcarpetas).
+                                                      * Base de datos jerárquicas.
+                                                      * Algoritmos de búsqueda y ordenamiento.
+                                                      * Inteligencia artificial (árboles de decisión).
+________________
+
+
+El árbol es una estructura crucial porque permite organizar datos de forma eficiente, ordenada y jerárquica, optimizando procesos de búsqueda, inserción y eliminación.
+
+
+________________
+
+
+✅ SP7: Operaciones en Bases de Datos
+________________
+
+
+El álgebra relacional es el conjunto de operaciones formales que permiten consultar y manipular la información almacenada en bases de datos relacionales. Estas operaciones trabajan a nivel de relaciones (tablas), y permiten obtener nuevas relaciones a partir de una o varias existentes. Se basan en principios de la teoría de conjuntos, y constituyen la base lógica para la construcción de consultas SQL.
+________________
+
+
+🔧 Operaciones fundamentales:
+                                                      1. Selección
+ Permite filtrar filas que cumplen una determinada condición.
+👉 Ejemplo: obtener todos los alumnos con promedio mayor a 7.
+Resultado: una tabla con solo las filas que cumplen ese criterio.
+
+                                                      2. Proyección
+ Extrae columnas específicas de una tabla, eliminando duplicados.
+👉 Ejemplo: listar solo los nombres y apellidos de los clientes.
+Resultado: una tabla con solo las columnas seleccionadas.
+
+                                                      3. Unión
+ Combina dos tablas que tienen la misma estructura.
+👉 Ejemplo: juntar registros de clientes de sucursales A y B.
+Resultado: una única tabla con todos los registros (sin duplicados).
+
+                                                      4. Intersección
+ Devuelve solo las filas que están presentes en ambas tablas.
+👉 Ejemplo: productos que se venden en más de un local.
+
+                                                      5. Diferencia
+ Muestra los registros de una tabla que no están en la otra.
+👉 Ejemplo: clientes que compraron en 2022 pero no en 2023.
+
+                                                      6. Producto cartesiano
+ Combina cada fila de una tabla con todas las filas de otra.
+👉 Ejemplo: combinar todos los productos con todos los proveedores.
+Se usa como paso intermedio en consultas más complejas, como la operación "juntar".
+
+________________
+
+
+🧩 ¿Para qué sirve el álgebra relacional?
+                                                         * Para analizar y diseñar consultas complejas en forma lógica.
+                                                         * Para recomponer información distribuida entre varias tablas.
+                                                         * Para establecer la base teórica de consultas SQL.
+                                                         * Para entender cómo se relacionan y se transforman los datos.
+________________
+
+
+🧠 Aplicaciones prácticas:
+                                                         * Mostrar reportes con filtros múltiples (ej: ventas > cierto monto en una fecha).
+                                                         * Obtener datos cruzando tablas (ej: clientes + pedidos).
+                                                         * Crear vistas simplificadas para el usuario final.
+                                                         * Estructurar información para auditorías o estadísticas.
+________________
+
+
+Este conjunto de operaciones permite trabajar con precisión sobre los datos, garantizando coherencia lógica y facilitando el diseño de sistemas de información robustos.
+
+
+________________
+
+
+✅ SP8: Proyección Multiatributo y Diseño Relacional
+________________
+
+
+Cuando trabajamos con documentos o formularios que reúnen mucha información junta, es fundamental separar y organizar correctamente esos datos para construir una base de datos relacional eficiente. Aquí es donde entran en juego la proyección multiatributo, la descomposición y la normalización.
+________________
+
+
+🧮 ¿Qué es la proyección multiatributo?
+Es una operación que permite extraer varios campos (atributos) de una tabla o conjunto de datos, con el objetivo de armar subtablas coherentes.
+👉 Por ejemplo: a partir de una tabla que contiene información de facturas completas, podemos proyectar solo los atributos relacionados con los clientes, productos, o detalles de compra.
+________________
+
+
+🔧 ¿Qué es descomponer?
+Descomponer significa dividir una tabla compleja en varias más pequeñas y especializadas. Esto permite:
+                                                         * Reducir la redundancia (evitar repetir datos como nombres o direcciones).
+                                                         * Facilitar las actualizaciones (cambiar un dato en un solo lugar).
+                                                         * Eliminar anomalías (errores al insertar, modificar o borrar datos).
+________________
+
+
+🧠 Ejemplo práctico:
+Formulario original de un pedido:
+Cliente: Juan Pérez
+Producto: Lámpara LED
+Cantidad: 2
+Precio Unitario: $1500
+Fecha: 12/04/2025
+Esto puede separarse en:
+                                                         * 🧾 Tabla Clientes (ID, nombre, dirección…)
+                                                         * 📦 Tabla Productos (ID, descripción, precio…)
+                                                         * 🛒 Tabla Pedidos (ID, cliente, fecha…)
+                                                         * 📋 Detalle_Pedido (pedido, producto, cantidad…)
+
+Cada tabla tiene una función clara, se conecta mediante claves primarias y foráneas, y puede ser reutilizada para múltiples registros.
+________________
+
+
+🧰 ¿Qué es la normalización?
+Es el proceso formal y sistemático para llevar a cabo esta descomposición. Se realiza en etapas llamadas formas normales (1FN, 2FN, 3FN...), que:
+                                                            * Establecen reglas para evitar redundancias.
+                                                            * Promueven un diseño más limpio y lógico.
+                                                            * Aumentan la coherencia e integridad de los datos.
+________________
+
+
+📌 Ventajas del diseño relacional bien estructurado:
+ ✅ Ahorro de espacio
+✅ Mayor claridad y mantenimiento
+✅ Evita errores y datos inconsistentes
+✅ Facilita las consultas y reportes
+✅ Mejora el rendimiento en grandes volúmenes de información
+________________
+
+
+Un diseño relacional adecuado no surge por arte de magia: se construye desde el análisis correcto del contenido original. La proyección multiatributo y la descomposición permiten traducir la realidad a estructuras técnicas, organizadas y efectivas.
+
+
+________________
+
+
+✅ SP9: Diagramas de Entidad-Relación (DER)
+________________
+
+
+Los Diagramas de Entidad-Relación (DER) son herramientas gráficas fundamentales para el análisis y diseño de bases de datos relacionales. Permiten representar de forma clara y visual los datos relevantes de un sistema, sus características y cómo se relacionan entre sí antes de construir las tablas.
+________________
+
+
+🧱 Componentes principales del DER:
+                                                            1. Entidades
+ Representan objetos del mundo real o abstracto.
+👉 Ejemplo: Cliente, Producto, Empleado, Pedido.
+
+                                                            2. Atributos
+ Son propiedades o características de una entidad.
+👉 Ejemplo: nombre, precio, fecha de nacimiento.
+
+                                                            3. Clave primaria (PK)
+ Atributo que identifica unívocamente a cada instancia de una entidad.
+👉 Ejemplo: DNI, ID de cliente, código de producto.
+
+                                                            4. Relaciones
+ Muestran los vínculos entre entidades.
+👉 Ejemplo: "un cliente realiza pedidos", "un empleado pertenece a un área".
+
+                                                            5. Cardinalidad
+ Indica la cantidad de ocurrencias que participan en la relación.
+
+                                                               * 1:1 → uno a uno
+                                                               * 1:N → uno a muchos
+                                                               * N:M → muchos a muchos
+________________
+
+
+✏️ ¿Para qué sirve el DER?
+                                                               * Representa gráficamente cómo se organiza la información.
+                                                               * Sirve como puente entre el análisis del problema y la implementación técnica.
+                                                               * Ayuda a identificar errores, redundancias o relaciones mal definidas antes de codificar la base.
+                                                               * Permite al equipo de desarrollo y a los usuarios comprender el modelo de datos con facilidad.
+________________
+
+
+🔁 De DER a base de datos:
+Una vez finalizado el DER, se convierte en un modelo relacional implementable:
+                                                               * Las entidades se transforman en tablas.
+                                                               * Los atributos se convierten en columnas.
+                                                               * Las relaciones se representan mediante claves foráneas (FK) o tablas intermedias si son muchos a muchos.
+                                                               * Se aplican reglas de integridad referencial para asegurar la consistencia de los datos.
+________________
+
+
+🧠 Ejemplo práctico:
+Supongamos que modelamos una base de datos de una librería. Podríamos tener:
+                                                               * Entidad Cliente con atributos: ID, nombre, email.
+                                                               * Entidad Pedido con: número, fecha, total.
+                                                               * Relación "realiza": un cliente realiza muchos pedidos.
+Esto se traduce en tablas donde Cliente.ID es clave primaria y Pedido.ID_Cliente es clave foránea.
+________________
+
+
+🎯 Ventajas del uso del DER:
+ ✅ Claridad visual en el diseño
+✅ Comunicación efectiva entre equipo técnico y usuarios
+✅ Reducción de errores estructurales
+✅ Base sólida para futuras ampliaciones
+✅ Diseño alineado con la lógica del negocio
+________________
+
+
+En resumen, el DER es el primer paso crítico para garantizar que la base de datos funcione bien. Es una herramienta de planificación que permite construir estructuras coherentes, limpias y fáciles de mantener.
+________________
+
+
+✅ Cierre General – Situaciones Profesionales TID
+A lo largo de estas nueve situaciones profesionales, se abordaron los principales conceptos, estructuras y herramientas que forman parte del campo de la programación estructurada y orientada a objetos, así como del diseño y gestión de bases de datos relacionales.
+Desde los fundamentos de la Programación Orientada a Objetos (POO), pasando por las estructuras de datos dinámicas (pilas, colas, listas, árboles, grafos), hasta llegar al manejo formal de la información con álgebra relacional, normalización y modelado mediante DER, este recorrido proporciona una base sólida y aplicada para enfrentar el diseño y desarrollo de sistemas informáticos reales.
+Cada SP permitió:
+                                                               * Aplicar conceptos técnicos en escenarios profesionales concretos.
+                                                               * Conectar la teoría con la práctica del diseño lógico de datos.
+                                                               * Entender cómo organizar, controlar y recuperar información de forma eficaz.
+                                                               * Reconocer la importancia de construir estructuras robustas, coherentes y escalables.
+Este resumen no solo recopila el contenido esencial para rendir con éxito el examen, sino que también propone una mirada integrada del rol que cumple la estructura de datos en el desarrollo de software y en la calidad de los sistemas.
+________________
+
+
+📌 Estudiar estas situaciones es mucho más que preparar un examen: es comprender la lógica con la que se construyen los sistemas que usamos todos los días.
+🧠 ¡Con este enfoque, cada concepto cobra sentido, y cada ejercicio te acerca un paso más al rol profesional que estás formando!
+
+
+
+
+
+
+
+
+
+
+/

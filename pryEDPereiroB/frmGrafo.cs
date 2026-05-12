@@ -17,13 +17,8 @@ namespace pryEDPereiroB
             InitializeComponent();
         }
 
-
-        private void frmGrafo_Load(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            cmbOrigen.SelectedIndex = 0;
-            cmbDestino.SelectedIndex = 0;
-            cmbCOrigen.SelectedIndex = 0;
-
 
         }
     }

@@ -96,5 +96,11 @@ namespace pryEDPereiroB
             frmArbolBinario arbolBinario = new frmArbolBinario();
             arbolBinario.ShowDialog();
         }
+
+        private void grafoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGrafo grafo = new frmGrafo();
+            grafo.ShowDialog();
+        }
     }
 }

@@ -90,5 +90,11 @@ namespace pryEDPereiroB
             frmListaDoble listaDoble = new frmListaDoble();
             listaDoble.ShowDialog();
         }
+
+        private void árbolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmArbolBinario arbolBinario = new frmArbolBinario();
+            arbolBinario.ShowDialog();
+        }
     }
 }

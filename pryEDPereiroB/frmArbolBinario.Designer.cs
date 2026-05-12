@@ -43,7 +43,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblTramite = new System.Windows.Forms.Label();
-            this.dgvListaDoble = new System.Windows.Forms.DataGridView();
+            this.dgvArbolBinario = new System.Windows.Forms.DataGridView();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTramite = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,7 @@
             this.trvArbolBinario = new System.Windows.Forms.TreeView();
             this.pnlEliminado.SuspendLayout();
             this.pnlElementos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaDoble)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArbolBinario)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -175,6 +175,7 @@
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblNombre
             // 
@@ -196,19 +197,19 @@
             this.lblTramite.TabIndex = 5;
             this.lblTramite.Text = "Tramite";
             // 
-            // dgvListaDoble
+            // dgvArbolBinario
             // 
-            this.dgvListaDoble.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvListaDoble.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaDoble.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvArbolBinario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvArbolBinario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArbolBinario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCodigo,
             this.clmNombre,
             this.clmTramite});
-            this.dgvListaDoble.Location = new System.Drawing.Point(215, 17);
-            this.dgvListaDoble.Name = "dgvListaDoble";
-            this.dgvListaDoble.RowHeadersVisible = false;
-            this.dgvListaDoble.Size = new System.Drawing.Size(453, 209);
-            this.dgvListaDoble.TabIndex = 41;
+            this.dgvArbolBinario.Location = new System.Drawing.Point(215, 17);
+            this.dgvArbolBinario.Name = "dgvArbolBinario";
+            this.dgvArbolBinario.RowHeadersVisible = false;
+            this.dgvArbolBinario.Size = new System.Drawing.Size(453, 209);
+            this.dgvArbolBinario.TabIndex = 41;
             // 
             // clmCodigo
             // 
@@ -249,7 +250,7 @@
             this.panel1.Controls.Add(this.optPostOrden);
             this.panel1.Controls.Add(this.optPreOrden);
             this.panel1.Controls.Add(this.optInOrden);
-            this.panel1.Controls.Add(this.dgvListaDoble);
+            this.panel1.Controls.Add(this.dgvArbolBinario);
             this.panel1.Location = new System.Drawing.Point(12, 267);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(682, 238);
@@ -316,7 +317,7 @@
             this.pnlEliminado.PerformLayout();
             this.pnlElementos.ResumeLayout(false);
             this.pnlElementos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaDoble)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArbolBinario)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -340,7 +341,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblTramite;
-        private System.Windows.Forms.DataGridView dgvListaDoble;
+        private System.Windows.Forms.DataGridView dgvArbolBinario;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTramite;

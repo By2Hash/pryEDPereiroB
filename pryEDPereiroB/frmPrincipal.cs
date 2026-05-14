@@ -102,5 +102,17 @@ namespace pryEDPereiroB
             frmGrafo grafo = new frmGrafo();
             grafo.ShowDialog();
         }
+
+        private void consultaDeUnaTablaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaTabla tabla = new frmConsultaTabla();
+            tabla.ShowDialog();
+        }
+
+        private void consultaDeBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarSQL DB = new frmConsultarSQL();
+            DB.ShowDialog();
+        }
     }
 }

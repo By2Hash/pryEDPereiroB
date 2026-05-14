@@ -114,5 +114,17 @@ namespace pryEDPereiroB
             frmConsultarSQL DB = new frmConsultarSQL();
             DB.ShowDialog();
         }
+
+        private void operacionesEnBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOperaciones operaciones = new frmOperaciones();
+            operaciones.ShowDialog();
+        }
+
+        private void consultasVariasConOperacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultasConOperaciones operaciones = new frmConsultasConOperaciones();
+            operaciones.ShowDialog();
+        }
     }
 }

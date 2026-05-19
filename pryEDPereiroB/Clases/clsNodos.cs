@@ -41,5 +41,17 @@ namespace pryEDPereiroB
             set { anterior = value; }
         }
 
+        public clsNodos Derecho
+        {
+            get { return siguiente; }
+            set { siguiente = value; }
+        }
+
+        public clsNodos Izquierda
+        {
+            get { return anterior; }
+            set { anterior = value; }
+        }
+
     }
 }

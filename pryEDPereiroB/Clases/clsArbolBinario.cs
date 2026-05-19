@@ -23,28 +23,24 @@ namespace pryEDPereiroB
             }
             else
             {
-                AgregarRecursivo(raiz, Nuevo);
+                clsNodos Ant = raiz;
+                clsNodos Aux = raiz;
+                while (Aux != null)
+                {
+                    Ant = Aux;
+                    if (Nuevo.Codigo < Aux.Codigo)
+                        Aux = Aux.Anterior;  // Hacia la izquierda
+                    else
+                        Aux = Aux.Siguiente; // Hacia la derecha
+                }
+                if (Nuevo.Codigo < Ant.Codigo)
+                    Ant.Anterior = Nuevo;
+                else
+                    Ant.Siguiente = Nuevo;
             }
         }
 
-        private void AgregarRecursivo(clsNodos actual, clsNodos Nuevo)
-        {
-            if (Nuevo.Codigo < actual.Codigo)
-            {
-                if (actual.Anterior == null)   // Anterior = hijo IZQUIERDO
-                    actual.Anterior = Nuevo;
-                else
-                    AgregarRecursivo(actual.Anterior, Nuevo);
-            }
-            else if (Nuevo.Codigo > actual.Codigo)
-            {
-                if (actual.Siguiente == null)  // Siguiente = hijo DERECHO
-                    actual.Siguiente = Nuevo;
-                else
-                    AgregarRecursivo(actual.Siguiente, Nuevo);
-            }
-            // Si Codigo ya existe, no se inserta (sin duplicados)
-        }
+       
 
         // ─── BUSCAR ───────────────────────────────────────────────────────────
         public clsNodos Buscar(int codigoBuscado)

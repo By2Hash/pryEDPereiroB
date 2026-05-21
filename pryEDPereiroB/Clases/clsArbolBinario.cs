@@ -40,8 +40,6 @@ namespace pryEDPereiroB
             }
         }
 
-       
-
         // ─── BUSCAR ───────────────────────────────────────────────────────────
         public clsNodos Buscar(int codigoBuscado)
         {
@@ -61,96 +59,79 @@ namespace pryEDPereiroB
                 return BuscarRecursivo(actual.Siguiente, codigoBuscado);
         }
 
-        // ─── RECORRIDOS A ARCHIVO (como clsPila) ──────────────────────────────
+        // ─── RECORRIDOS A ARCHIVO ─────────────────────────────────────────────
         public void Recorrer()
         {
             StreamWriter sw = new StreamWriter("Arbol.txt");
-            RecorrerInOrden(raiz, sw);
+            RecorrerEscribirArchivo(raiz, sw);
             sw.Close();
         }
 
-        private void RecorrerInOrden(clsNodos actual, StreamWriter sw)
+        private void RecorrerEscribirArchivo(clsNodos actual, StreamWriter sw)
         {
             if (actual == null) return;
-
-            RecorrerInOrden(actual.Anterior, sw);   // Izquierda
-            sw.WriteLine("Codigo: " + actual.Codigo);
-            sw.WriteLine("Nombre: " + actual.Nombre);
-            sw.WriteLine("Tramite: " + actual.Tramite);
-            sw.WriteLine("");
-            RecorrerInOrden(actual.Siguiente, sw);  // Derecha
+            RecorrerEscribirArchivo(actual.Anterior, sw);
+            sw.WriteLine(actual.Codigo + "," + actual.Nombre + "," + actual.Tramite);
+            RecorrerEscribirArchivo(actual.Siguiente, sw);
         }
 
-        // ─── RECORRER → DataGridView ──────────────────────────────────────────
-        public void Recorrer(DataGridView Grilla)
+        // ─── RECORRER → DataGridView (Según el RadioButton) ───────────────────
+        public void Recorrer(DataGridView Grilla, string orden)
         {
             Grilla.Rows.Clear();
-            RecorrerGrilla(raiz, Grilla);
+
+            switch (orden)
+            {
+                case "InOrden":
+                    RecorrerInOrden(raiz, Grilla);
+                    break;
+                case "PreOrden":
+                    RecorrerPreOrden(raiz, Grilla);
+                    break;
+                case "PostOrden":
+                    RecorrerPostOrden(raiz, Grilla);
+                    break;
+            }
         }
 
-        private void RecorrerGrilla(clsNodos actual, DataGridView Grilla)
+        // Izquierda -> Raíz -> Derecha
+        private void RecorrerInOrden(clsNodos actual, DataGridView Grilla)
         {
             if (actual == null) return;
-
-            RecorrerGrilla(actual.Anterior, Grilla);
+            RecorrerInOrden(actual.Anterior, Grilla);
             Grilla.Rows.Add(actual.Codigo, actual.Nombre, actual.Tramite);
-            RecorrerGrilla(actual.Siguiente, Grilla);
+            RecorrerInOrden(actual.Siguiente, Grilla);
         }
 
-        // ─── RECORRER → TreeView (estructura visual del árbol) ────────────────
+        // Raíz -> Izquierda -> Derecha
+        private void RecorrerPreOrden(clsNodos actual, DataGridView Grilla)
+        {
+            if (actual == null) return;
+            Grilla.Rows.Add(actual.Codigo, actual.Nombre, actual.Tramite);
+            RecorrerPreOrden(actual.Anterior, Grilla);
+            RecorrerPreOrden(actual.Siguiente, Grilla);
+        }
+
+        // Izquierda -> Derecha -> Raíz
+        private void RecorrerPostOrden(clsNodos actual, DataGridView Grilla)
+        {
+            if (actual == null) return;
+            RecorrerPostOrden(actual.Anterior, Grilla);
+            RecorrerPostOrden(actual.Siguiente, Grilla);
+            Grilla.Rows.Add(actual.Codigo, actual.Nombre, actual.Tramite);
+        }
+
+        // ─── RECORRER → TreeView (Estructura visual) ──────────────────────────
         public void Recorrer(TreeView arbol)
         {
             arbol.Nodes.Clear();
-
             if (raiz == null) return;
 
             TreeNode nodoRaiz = new TreeNode("Raíz: " + raiz.Codigo + " - " + raiz.Nombre);
             arbol.Nodes.Add(nodoRaiz);
 
             RecorrerTreeView(raiz, nodoRaiz);
-
             arbol.ExpandAll();
-        }
-
-        public void Recorrer(DataGridView grilla, String modo)
-        {
-            grilla.Rows.Clear();
-            switch (modo)
-            { 
-                case "InOrden":
-                    RecorrerGrilla(raiz, grilla);
-                    break;
-                case "PreOrden":
-                    PreOrden(raiz, grilla);     // Raíz → Izq → Der
-                    break;
-                case "PostOrden":
-                    PostOrden(raiz, grilla);    // Izq → Der → Raíz
-                    break;
-            }
-        }
-
-        private void InOrden(clsNodos actual, DataGridView Grilla)
-        {
-            if (actual == null) return;
-            InOrden(actual.Anterior, Grilla);                                      // Izquierda
-            Grilla.Rows.Add(actual.Codigo, actual.Nombre, actual.Tramite);         // Raíz
-            InOrden(actual.Siguiente, Grilla);                                     // Derecha
-        }
-
-        private void PreOrden(clsNodos actual, DataGridView Grilla)
-        {
-            if (actual == null) return;
-            Grilla.Rows.Add(actual.Codigo, actual.Nombre, actual.Tramite);         // Raíz
-            PreOrden(actual.Anterior, Grilla);                                     // Izquierda
-            PreOrden(actual.Siguiente, Grilla);                                    // Derecha
-        }
-
-        private void PostOrden(clsNodos actual, DataGridView Grilla)
-        {
-            if (actual == null) return;
-            PostOrden(actual.Anterior, Grilla);                                    // Izquierda
-            PostOrden(actual.Siguiente, Grilla);                                   // Derecha
-            Grilla.Rows.Add(actual.Codigo, actual.Nombre, actual.Tramite);         // Raíz
         }
 
         private void RecorrerTreeView(clsNodos actual, TreeNode nodoActual)
@@ -158,8 +139,7 @@ namespace pryEDPereiroB
             // Hijo izquierdo (Anterior)
             if (actual.Anterior != null)
             {
-                TreeNode nodoIzq = new TreeNode("Izq: " + actual.Anterior.Codigo
-                                                + " - " + actual.Anterior.Nombre);
+                TreeNode nodoIzq = new TreeNode("Izq: " + actual.Anterior.Codigo + " - " + actual.Anterior.Nombre);
                 nodoActual.Nodes.Add(nodoIzq);
                 RecorrerTreeView(actual.Anterior, nodoIzq);
             }
@@ -167,8 +147,7 @@ namespace pryEDPereiroB
             // Hijo derecho (Siguiente)
             if (actual.Siguiente != null)
             {
-                TreeNode nodoDer = new TreeNode("Der: " + actual.Siguiente.Codigo
-                                                + " - " + actual.Siguiente.Nombre);
+                TreeNode nodoDer = new TreeNode("Der: " + actual.Siguiente.Codigo + " - " + actual.Siguiente.Nombre);
                 nodoActual.Nodes.Add(nodoDer);
                 RecorrerTreeView(actual.Siguiente, nodoDer);
             }

@@ -50,9 +50,9 @@
             this.lblElementos = new System.Windows.Forms.Label();
             this.btnEquilibrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.optInOrden = new System.Windows.Forms.RadioButton();
-            this.optPreOrden = new System.Windows.Forms.RadioButton();
             this.optPostOrden = new System.Windows.Forms.RadioButton();
+            this.optPreOrden = new System.Windows.Forms.RadioButton();
+            this.optInOrden = new System.Windows.Forms.RadioButton();
             this.trvArbolBinario = new System.Windows.Forms.TreeView();
             this.pnlEliminado.SuspendLayout();
             this.pnlElementos.SuspendLayout();
@@ -255,28 +255,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(682, 238);
             this.panel1.TabIndex = 48;
-            // 
-            // optInOrden
-            // 
-            this.optInOrden.AutoSize = true;
-            this.optInOrden.Location = new System.Drawing.Point(18, 54);
-            this.optInOrden.Name = "optInOrden";
-            this.optInOrden.Size = new System.Drawing.Size(66, 17);
-            this.optInOrden.TabIndex = 42;
-            this.optInOrden.TabStop = true;
-            this.optInOrden.Text = "In-Orden";
-            this.optInOrden.UseVisualStyleBackColor = true;
-            // 
-            // optPreOrden
-            // 
-            this.optPreOrden.AutoSize = true;
-            this.optPreOrden.Location = new System.Drawing.Point(18, 109);
-            this.optPreOrden.Name = "optPreOrden";
-            this.optPreOrden.Size = new System.Drawing.Size(73, 17);
-            this.optPreOrden.TabIndex = 43;
-            this.optPreOrden.TabStop = true;
-            this.optPreOrden.Text = "Pre-Orden";
-            this.optPreOrden.UseVisualStyleBackColor = true;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // optPostOrden
             // 
@@ -288,6 +267,31 @@
             this.optPostOrden.TabStop = true;
             this.optPostOrden.Text = "Post-Orden";
             this.optPostOrden.UseVisualStyleBackColor = true;
+            this.optPostOrden.CheckedChanged += new System.EventHandler(this.optPostOrden_CheckedChanged);
+            // 
+            // optPreOrden
+            // 
+            this.optPreOrden.AutoSize = true;
+            this.optPreOrden.Location = new System.Drawing.Point(18, 109);
+            this.optPreOrden.Name = "optPreOrden";
+            this.optPreOrden.Size = new System.Drawing.Size(73, 17);
+            this.optPreOrden.TabIndex = 43;
+            this.optPreOrden.TabStop = true;
+            this.optPreOrden.Text = "Pre-Orden";
+            this.optPreOrden.UseVisualStyleBackColor = true;
+            this.optPreOrden.CheckedChanged += new System.EventHandler(this.optPreOrden_CheckedChanged);
+            // 
+            // optInOrden
+            // 
+            this.optInOrden.AutoSize = true;
+            this.optInOrden.Location = new System.Drawing.Point(18, 54);
+            this.optInOrden.Name = "optInOrden";
+            this.optInOrden.Size = new System.Drawing.Size(66, 17);
+            this.optInOrden.TabIndex = 42;
+            this.optInOrden.TabStop = true;
+            this.optInOrden.Text = "In-Orden";
+            this.optInOrden.UseVisualStyleBackColor = true;
+            this.optInOrden.CheckedChanged += new System.EventHandler(this.optInOrden_CheckedChanged_1);
             // 
             // trvArbolBinario
             // 
@@ -313,6 +317,7 @@
             this.Name = "frmArbolBinario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Arbol Binario";
+            this.Load += new System.EventHandler(this.frmArbolBinario_Load);
             this.pnlEliminado.ResumeLayout(false);
             this.pnlEliminado.PerformLayout();
             this.pnlElementos.ResumeLayout(false);

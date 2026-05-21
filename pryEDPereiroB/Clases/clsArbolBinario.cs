@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -168,5 +169,105 @@ namespace pryEDPereiroB
             Lista.Items.Add(actual.Codigo + " - " + actual.Nombre);
             RecorrerLista(actual.Siguiente, Lista);
         }
+
+        // ─── EQUILIBRAR ───────────────────────────────────────────────────────────
+        public void Equilibrar()
+        {
+            // 1. Recolectar todos los nodos en orden (ya están ordenados por Codigo)
+            List<clsNodos> lista = new List<clsNodos>();
+            RecolectarInOrden(raiz, lista);
+
+            // 2. Limpiar el árbol
+            raiz = null;
+
+            // 3. Reconstruir desde el centro
+            raiz = ConstruirEquilibrado(lista, 0, lista.Count - 1);
+        }
+
+        private void RecolectarInOrden(clsNodos actual, List<clsNodos> lista)
+        {
+            if (actual == null) return;
+            RecolectarInOrden(actual.Anterior, lista);
+            lista.Add(actual);
+            RecolectarInOrden(actual.Siguiente, lista);
+        }
+
+        private clsNodos ConstruirEquilibrado(List<clsNodos> lista, int inicio, int fin)
+        {
+            if (inicio > fin) return null;
+
+            int medio = (inicio + fin) / 2;
+            clsNodos nodo = lista[medio];
+
+            // Limpiar punteros antes de reinsertar
+            nodo.Anterior = null;
+            nodo.Siguiente = null;
+
+            nodo.Anterior = ConstruirEquilibrado(lista, inicio, medio - 1);
+            nodo.Siguiente = ConstruirEquilibrado(lista, medio + 1, fin);
+
+            return nodo;
+        }
+
+        // ─── ELIMINAR ─────────────────────────────────────────────────────────────
+        public bool Eliminar(int codigo)
+        {
+            bool eliminado = false;
+            raiz = EliminarRecursivo(raiz, codigo, ref eliminado);
+            return eliminado;
+        }
+
+        private clsNodos EliminarRecursivo(clsNodos actual, int codigo, ref bool eliminado)
+        {
+            if (actual == null) return null;
+
+            if (codigo < actual.Codigo)
+            {
+                actual.Anterior = EliminarRecursivo(actual.Anterior, codigo, ref eliminado);
+            }
+            else if (codigo > actual.Codigo)
+            {
+                actual.Siguiente = EliminarRecursivo(actual.Siguiente, codigo, ref eliminado);
+            }
+            else
+            {
+                // Nodo encontrado
+                eliminado = true;
+
+                // Caso 1: Nodo hoja
+                if (actual.Anterior == null && actual.Siguiente == null)
+                    return null;
+
+                // Caso 2a: Solo hijo derecho
+                if (actual.Anterior == null)
+                    return actual.Siguiente;
+
+                // Caso 2b: Solo hijo izquierdo
+                if (actual.Siguiente == null)
+                    return actual.Anterior;
+
+                // Caso 3: Dos hijos → buscar sucesor in-orden (mínimo del subárbol derecho)
+                clsNodos sucesor = ObtenerMinimo(actual.Siguiente);
+
+                // Copiar datos del sucesor al nodo actual
+                actual.Codigo = sucesor.Codigo;
+                actual.Nombre = sucesor.Nombre;
+                actual.Tramite = sucesor.Tramite;
+
+                // Eliminar el sucesor del subárbol derecho
+                actual.Siguiente = EliminarRecursivo(actual.Siguiente, sucesor.Codigo, ref eliminado);
+                eliminado = true;
+            }
+
+            return actual;
+        }
+
+        private clsNodos ObtenerMinimo(clsNodos actual)
+        {
+            while (actual.Anterior != null)
+                actual = actual.Anterior;
+            return actual;
+        }
+
     }
 }

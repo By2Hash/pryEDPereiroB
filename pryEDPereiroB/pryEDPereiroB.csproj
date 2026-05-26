@@ -56,6 +56,7 @@
     <Compile Include="Clases\clsListaSimple.cs" />
     <Compile Include="Clases\clsListaDoble.cs" />
     <Compile Include="Clases\clsArbolBinario.cs" />
+    <Compile Include="clsGrafo.cs" />
     <Compile Include="frmAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -38,9 +38,11 @@
             // 
             // dgvConsultarTabla
             // 
+            this.dgvConsultarTabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConsultarTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsultarTabla.Location = new System.Drawing.Point(12, 12);
             this.dgvConsultarTabla.Name = "dgvConsultarTabla";
+            this.dgvConsultarTabla.RowHeadersVisible = false;
             this.dgvConsultarTabla.Size = new System.Drawing.Size(776, 377);
             this.dgvConsultarTabla.TabIndex = 0;
             // 
@@ -52,6 +54,7 @@
             this.btnLlamar.TabIndex = 1;
             this.btnLlamar.Text = "Listar";
             this.btnLlamar.UseVisualStyleBackColor = true;
+            this.btnLlamar.Click += new System.EventHandler(this.btnLlamar_Click_1);
             // 
             // cmbConsultar
             // 
@@ -83,6 +86,7 @@
             this.Name = "frmConsultaTabla";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de una tabla";
+            this.Load += new System.EventHandler(this.frmConsultaTabla_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultarTabla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

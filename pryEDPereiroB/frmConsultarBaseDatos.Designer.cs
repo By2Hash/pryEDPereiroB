@@ -48,6 +48,7 @@
             // 
             // txtBaseDeDatos
             // 
+            this.txtBaseDeDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBaseDeDatos.Location = new System.Drawing.Point(12, 37);
             this.txtBaseDeDatos.Multiline = true;
             this.txtBaseDeDatos.Name = "txtBaseDeDatos";
@@ -63,6 +64,7 @@
             this.btnListar.TabIndex = 2;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // dgvConsultarBaseDeDatos
             // 

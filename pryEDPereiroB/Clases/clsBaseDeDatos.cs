@@ -15,7 +15,7 @@ namespace pryEDPereiroB
         OleDbCommand comando = new OleDbCommand();
         OleDbDataAdapter adaptador = new OleDbDataAdapter();
 
-        private string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Libreria.mdb";
+        private string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\DB\\Libreria.mdb";
 
         // ─────────────────────────────────────────────────────────────
         // Devuelve los nombres de las tablas del usuario (excluye
@@ -24,8 +24,10 @@ namespace pryEDPereiroB
         public List<string> ObtenerTablas()
         {
             List<string> tablas = new List<string>();
+           
 
             try
+              
             {
                 conexion.ConnectionString = cadenaConexion;
                 conexion.Open();
@@ -60,13 +62,12 @@ namespace pryEDPereiroB
         // ─────────────────────────────────────────────────────────────
         // Lista el contenido completo de una tabla en el DataGridView
         // ─────────────────────────────────────────────────────────────
-        public void Listar(DataGridView Grilla, string tabla)
+        public void Listar(string tabla, DataGridView Grilla )
         {
             try
             {
-                conexion.ConnectionString = cadenaConexion;
-                conexion.Open();
-
+            
+                
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.TableDirect;
                 comando.CommandText = tabla;
@@ -80,9 +81,36 @@ namespace pryEDPereiroB
 
                 conexion.Close();
             }
+
+           
             catch (Exception ex)
             {
                 MessageBox.Show("Error al listar: " + ex.Message);
+            }
+        }
+
+        public void Listar(DataGridView Grilla, string varInstructionSQL)
+        {
+            try
+            {
+           
+
+                comando.Connection = conexion;
+               comando.CommandType = CommandType.Text;
+                comando.CommandText = varInstructionSQL;
+
+                adaptador = new OleDbDataAdapter(comando);
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, "Resultado");
+
+                Grilla.DataSource = null;
+                Grilla.DataSource = DS.Tables["Resultado"];
+
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar con condición: " + ex.Message);
             }
         }
     }

@@ -17,8 +17,17 @@ namespace pryEDPereiroB
             InitializeComponent();
         }
 
+        clsBaseDeDatos db = new clsBaseDeDatos();
         private void frmConsultarSQL_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+
+            string baseDeDatos = txtBaseDeDatos.Text.Trim();
+            db.Listar(dgvConsultarBaseDeDatos, baseDeDatos);
 
         }
     }

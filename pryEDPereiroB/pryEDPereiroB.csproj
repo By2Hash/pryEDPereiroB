@@ -256,6 +256,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="4213454-connections-media-network-share-social-structure_115377.ico" />
+    <Content Include="DB\Libreria.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\Sin título2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

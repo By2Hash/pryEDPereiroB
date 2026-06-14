@@ -48,19 +48,30 @@ namespace pryEDPereiroB
             }
         }
 
+        public clsNodos Peek()
+        {
+            return primero;
+        }
+
+        public bool IsEmpty()
+        {
+            return primero == null;
+        }
 
         public void Recorrer()
         {
             clsNodos Aux = Primero;
-            StreamWriter sw = new StreamWriter("Cola.txt");
-            while (Aux != null)
+            using (StreamWriter sw = new StreamWriter("Cola.txt")) 
             {
-                sw.WriteLine("Codigo: " + Aux.Codigo);
-                sw.WriteLine("Nombre: " + Aux.Nombre);
-                sw.WriteLine("Tramite: " + Aux.Tramite);
-                sw.WriteLine("");
-                Aux = Aux.Siguiente;
-            }
+                while (Aux != null)
+                {
+                    sw.WriteLine("Codigo: " + Aux.Codigo);
+                    sw.WriteLine("Nombre: " + Aux.Nombre);
+                    sw.WriteLine("Tramite: " + Aux.Tramite);
+                    sw.WriteLine("");
+                    Aux = Aux.Siguiente;
+                }
+            } 
         }
 
         public void Recorrer(DataGridView Grilla)

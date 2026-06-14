@@ -40,17 +40,21 @@
             // 
             this.dgvConsultarTabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConsultarTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsultarTabla.Location = new System.Drawing.Point(12, 12);
+            this.dgvConsultarTabla.Location = new System.Drawing.Point(18, 18);
+            this.dgvConsultarTabla.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvConsultarTabla.Name = "dgvConsultarTabla";
             this.dgvConsultarTabla.RowHeadersVisible = false;
-            this.dgvConsultarTabla.Size = new System.Drawing.Size(776, 377);
+            this.dgvConsultarTabla.RowHeadersWidth = 62;
+            this.dgvConsultarTabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConsultarTabla.Size = new System.Drawing.Size(1164, 580);
             this.dgvConsultarTabla.TabIndex = 0;
             // 
             // btnLlamar
             // 
-            this.btnLlamar.Location = new System.Drawing.Point(677, 409);
+            this.btnLlamar.Location = new System.Drawing.Point(1016, 629);
+            this.btnLlamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLlamar.Name = "btnLlamar";
-            this.btnLlamar.Size = new System.Drawing.Size(111, 23);
+            this.btnLlamar.Size = new System.Drawing.Size(166, 35);
             this.btnLlamar.TabIndex = 1;
             this.btnLlamar.Text = "Listar";
             this.btnLlamar.UseVisualStyleBackColor = true;
@@ -59,30 +63,33 @@
             // cmbConsultar
             // 
             this.cmbConsultar.FormattingEnabled = true;
-            this.cmbConsultar.Location = new System.Drawing.Point(540, 409);
+            this.cmbConsultar.Location = new System.Drawing.Point(810, 629);
+            this.cmbConsultar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbConsultar.Name = "cmbConsultar";
-            this.cmbConsultar.Size = new System.Drawing.Size(131, 21);
+            this.cmbConsultar.Size = new System.Drawing.Size(194, 28);
             this.cmbConsultar.TabIndex = 2;
             // 
             // lblTabla
             // 
             this.lblTabla.AutoSize = true;
-            this.lblTabla.Location = new System.Drawing.Point(398, 412);
+            this.lblTabla.Location = new System.Drawing.Point(597, 634);
+            this.lblTabla.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTabla.Name = "lblTabla";
-            this.lblTabla.Size = new System.Drawing.Size(136, 13);
+            this.lblTabla.Size = new System.Drawing.Size(199, 20);
             this.lblTabla.TabIndex = 3;
             this.lblTabla.Text = "Tabla de la base de datos: ";
             // 
             // frmConsultaTabla
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.lblTabla);
             this.Controls.Add(this.cmbConsultar);
             this.Controls.Add(this.btnLlamar);
             this.Controls.Add(this.dgvConsultarTabla);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmConsultaTabla";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de una tabla";

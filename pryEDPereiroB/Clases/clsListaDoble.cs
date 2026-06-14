@@ -150,8 +150,22 @@ namespace pryEDPereiroB
             }
         }
 
+        public clsNodos Buscar(Int32 Codigo)
+        {
+            clsNodos aux = primero;
+            while (aux != null)
+            {
+                if (aux.Codigo == Codigo)
+                    return aux;
+                aux = aux.Siguiente;
+            }
+            return null;
+        }
+
         public void Eliminar(Int32 Codigo)
         {
+            if (primero == null) return;
+
             if (primero.Codigo == Codigo && ultimo == primero)
             {
                 primero = null;
@@ -173,16 +187,19 @@ namespace pryEDPereiroB
                     }
                     else
                     { 
-                        clsNodos aux = primero;
+                        clsNodos aux1 = primero;
                         clsNodos ant = primero;
-                        while (aux.Codigo != Codigo)
+                        while (aux1 != null && aux1.Codigo != Codigo)
                         {
-                            ant = aux;
-                            aux = aux.Siguiente;
+                            ant = aux1;
+                            aux1 = aux1.Siguiente;
                         }
-                        aux = aux.Siguiente;
-                        aux.Anterior = ant;
-                        ant.Siguiente = aux;
+                        if (aux1 != null)
+                        {
+                            clsNodos aux2 = aux1.Siguiente;
+                            aux2.Anterior = ant;
+                            ant.Siguiente = aux2;
+                        }
                     }
                 }
 

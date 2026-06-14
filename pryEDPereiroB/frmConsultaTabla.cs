@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -24,7 +23,7 @@ namespace pryEDPereiroB
         private void frmConsultaTabla_Load(object sender, EventArgs e)
         {
             clsBaseDeDatos bd = new clsBaseDeDatos();
-            List<string> tablas = bd.ObtenerTablas();
+            string[] tablas = bd.ObtenerTablas();
 
             cmbConsultar.Items.Clear();
 
@@ -38,11 +37,6 @@ namespace pryEDPereiroB
                 cmbConsultar.SelectedIndex = 0;
         }
 
-        // ─────────────────────────────────────────────────────────────
-        // FIX: el orden era (texto, grilla) — debe ser (grilla, texto)
-        // ─────────────────────────────────────────────────────────────
-       
-
         private void btnLlamar_Click_1(object sender, EventArgs e)
         {
             if (cmbConsultar.SelectedItem == null)
@@ -55,7 +49,7 @@ namespace pryEDPereiroB
             }
 
             clsBaseDeDatos bd = new clsBaseDeDatos();
-            bd.Listar(dgvConsultarTabla, cmbConsultar.Text); // ← orden correcto
+            bd.Listar(cmbConsultar.Text, dgvConsultarTabla);
         }
     }
 }

@@ -41,6 +41,16 @@ namespace pryEDPereiroB
             
         }
 
+        public clsNodos Peek()
+        {
+            return primero;
+        }
+
+        public bool IsEmpty()
+        {
+            return primero == null;
+        }
+
         public void Recorrer()
         {
             clsNodos Aux = Primero;

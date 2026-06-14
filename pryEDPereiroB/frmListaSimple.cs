@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -74,6 +72,8 @@ namespace pryEDPereiroB
                 ls.Recorrer(dgvListaSimple); 
                 ls.Recorrer(lstListaSimple); 
                 ls.Recorrer(cmbCodigo);
+                cmbCodigo.SelectedIndex = -1;
+                cmbCodigo.Text = "";
 
                 MessageBox.Show("Elemento eliminado correctamente.");
             }

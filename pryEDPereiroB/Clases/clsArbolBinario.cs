@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -173,38 +172,43 @@ namespace pryEDPereiroB
         // ─── EQUILIBRAR ───────────────────────────────────────────────────────────
         public void Equilibrar()
         {
-            // 1. Recolectar todos los nodos en orden (ya están ordenados por Codigo)
-            List<clsNodos> lista = new List<clsNodos>();
-            RecolectarInOrden(raiz, lista);
+            int total = ContarNodos(raiz);
+            if (total == 0) return;
 
-            // 2. Limpiar el árbol
+            clsNodos[] arr = new clsNodos[total];
+            int i = 0;
+            RecolectarInOrden(raiz, arr, ref i);
+
             raiz = null;
-
-            // 3. Reconstruir desde el centro
-            raiz = ConstruirEquilibrado(lista, 0, lista.Count - 1);
+            raiz = ConstruirEquilibrado(arr, 0, total - 1);
         }
 
-        private void RecolectarInOrden(clsNodos actual, List<clsNodos> lista)
+        private int ContarNodos(clsNodos actual)
+        {
+            if (actual == null) return 0;
+            return 1 + ContarNodos(actual.Anterior) + ContarNodos(actual.Siguiente);
+        }
+
+        private void RecolectarInOrden(clsNodos actual, clsNodos[] arr, ref int i)
         {
             if (actual == null) return;
-            RecolectarInOrden(actual.Anterior, lista);
-            lista.Add(actual);
-            RecolectarInOrden(actual.Siguiente, lista);
+            RecolectarInOrden(actual.Anterior, arr, ref i);
+            arr[i++] = actual;
+            RecolectarInOrden(actual.Siguiente, arr, ref i);
         }
 
-        private clsNodos ConstruirEquilibrado(List<clsNodos> lista, int inicio, int fin)
+        private clsNodos ConstruirEquilibrado(clsNodos[] arr, int inicio, int fin)
         {
             if (inicio > fin) return null;
 
             int medio = (inicio + fin) / 2;
-            clsNodos nodo = lista[medio];
+            clsNodos nodo = arr[medio];
 
-            // Limpiar punteros antes de reinsertar
             nodo.Anterior = null;
             nodo.Siguiente = null;
 
-            nodo.Anterior = ConstruirEquilibrado(lista, inicio, medio - 1);
-            nodo.Siguiente = ConstruirEquilibrado(lista, medio + 1, fin);
+            nodo.Anterior = ConstruirEquilibrado(arr, inicio, medio - 1);
+            nodo.Siguiente = ConstruirEquilibrado(arr, medio + 1, fin);
 
             return nodo;
         }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,8 +31,7 @@ namespace pryEDPereiroB
                 x.Guardar(txtMeses.Text);
 
                 txtMeses.Clear();
-                lstMeses.Items.Clear();
-                lstMeses.Items.AddRange(File.ReadAllLines("Meses.txt"));
+                x.Recorrer(lstMeses);
             }
         }
 

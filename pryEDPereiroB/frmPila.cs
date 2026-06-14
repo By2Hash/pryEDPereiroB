@@ -57,9 +57,7 @@ namespace pryEDPereiroB
             }
             else
             {
-                lblTraEliminado.Text = "";
-                lblNomEliminado.Text = "";
-                lblCodEliminado.Text = "";
+                MessageBox.Show("No hay elementos para eliminar");
             }
         }
 

@@ -53,7 +53,7 @@ namespace pryEDPereiroB
         public void Recorrer()
         {
             clsNodos Aux = Primero;
-            StreamWriter sw = new StreamWriter("Pila.txt");
+            StreamWriter sw = new StreamWriter("ListaSimple.txt");
             while (Aux != null)
             {
                 sw.WriteLine("Codigo: " + Aux.Codigo);
@@ -107,8 +107,22 @@ namespace pryEDPereiroB
             }
         }
 
+        public clsNodos Buscar(Int32 Codigo)
+        {
+            clsNodos aux = primero;
+            while (aux != null)
+            {
+                if (aux.Codigo == Codigo)
+                    return aux;
+                aux = aux.Siguiente;
+            }
+            return null;
+        }
+
         public void Eliminar(Int32 Codigo)
         {
+            if (primero == null) return;
+
             if (primero.Codigo == Codigo)
             {
                 primero = primero.Siguiente;
@@ -117,12 +131,13 @@ namespace pryEDPereiroB
             {   
                 clsNodos aux1 = primero;
                 clsNodos aux2 = primero;
-                while (aux1.Codigo != Codigo)
+                while (aux1 != null && aux1.Codigo != Codigo)
                 {
                     aux2 = aux1;
                     aux1 = aux1.Siguiente;
                 }
-                aux2.Siguiente = aux1.Siguiente;
+                if (aux1 != null)
+                    aux2.Siguiente = aux1.Siguiente;
             }
         }
     }
